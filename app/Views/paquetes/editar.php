@@ -9,8 +9,15 @@
 
 <body>
     <h1>Editando paquete #<?= $paquete['id'] ?></h1>
-    <form method="post" action="<?= site_url('/paquete/update/' . $paquete['id']) ?>" enctype="multipart/form-data">
+    <form method="post" action="<?= site_url('/paquetes/update/' . $paquete['id']) ?>" enctype="multipart/form-data">
         <p>Destino: <input type="text" name="destino" value="<?= $paquete['destino'] ?>"></p>
+        <p>Categoría:
+            <select name="categoria" required>
+                <option value="1" <?= $paquete['categoria'] == 1 ? 'selected' : '' ?>>Nacional</option>
+                <option value="2" <?= $paquete['categoria'] == 2 ? 'selected' : '' ?>>Internacional</option>
+                <option value="3" <?= $paquete['categoria'] == 3 ? 'selected' : '' ?>>Promocional</option>
+            </select>
+        </p>
         <p>Hotel: <input type="text" name="hotel" value="<?= $paquete['hotel'] ?>"></p>
         <p>Transporte: <input type="text" name="transporte" value="<?= $paquete['transporte'] ?>"></p>
         <p>Días: <input type="text" name="dias" value="<?= $paquete['dias'] ?>"></p>

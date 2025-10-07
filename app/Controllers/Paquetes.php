@@ -42,6 +42,7 @@ class Paquetes extends BaseController
         $stock = $this->request->getPost('stock');
         $imagen = $this->request->getFile('imagen');
         $rutaImagen = null;
+        $categoria = $this->request->getPost('categoria');
         if ($imagen && $imagen->isValid() && !$imagen->hasMoved()) {
             $nombreArchivo = $imagen->getRandomName();
             $imagen->move(ROOTPATH . 'public/uploads', $nombreArchivo);
@@ -53,7 +54,8 @@ class Paquetes extends BaseController
             'transporte' => $transporte,
             'dias' => $dias,
             'stock' => $stock,
-            'imagen' => $rutaImagen
+            'imagen' => $rutaImagen,
+            'categoria' => $categoria
         ]);
         return redirect()->to('/paquetes');
     }
@@ -68,13 +70,14 @@ class Paquetes extends BaseController
         $nuevoStock = $this->request->getPost('stock');
         $nuevoImagen = $this->request->getFile('imagen');
         $rutaImagen = null;
+        $categoria = $this->request->getPost('categoria');
         if ($nuevoImagen && $nuevoImagen->isValid() && !$nuevoImagen->hasMoved()) {
             $nombreArchivo = $nuevoImagen->getRandomName();
             $nuevoImagen->move(ROOTPATH . 'public/uploads', $nombreArchivo);
             $rutaImagen = 'uploads/' . $nombreArchivo;
         }
-        // Siempre pasar 7 argumentos, aunque la imagen sea null
-        $this->paquetesModel->updatePaquete($id, $nuevoDestino, $nuevoHotel, $nuevoTransporte, $nuevosDias, $nuevoStock, $rutaImagen);
+        // Siempre pasar 8 argumentos, aunque la imagen sea null
+        $this->paquetesModel->updatePaquete($id, $nuevoDestino, $nuevoHotel, $nuevoTransporte, $nuevosDias, $nuevoStock, $rutaImagen, $categoria);
         return redirect()->to('/paquetes');
     }
     // Elimina un paquete existente.

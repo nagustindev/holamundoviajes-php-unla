@@ -9,8 +9,15 @@
 
 <body>
     <h1>Formulario de creación</h1>
-    <form method="post" action="<?= site_url('paquete/save') ?>" enctype="multipart/form-data">
+    <form method="post" action="<?= site_url('paquetes/save') ?>" enctype="multipart/form-data">
         <p>Destino: <input type="text" name="destino"></p>
+        <p>Categoría:
+            <select name="categoria" required>
+                <option value="1">Nacional</option>
+                <option value="2">Internacional</option>
+                <option value="3">Promocional</option>
+            </select>
+        </p>
         <p>Hotel: <input type="text" name="hotel"></p>
         <p>Transporte: <input type="text" name="transporte"></p>
         <p>Días: <input type="text" name="dias"></p>

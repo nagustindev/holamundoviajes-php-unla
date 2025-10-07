@@ -11,8 +11,8 @@ class PaquetesModel extends Model
     // modelo tienen que impactar en la tabla 'paquetes'.
     protected $table = 'paquetes';
     // Sirve para indicarle a CodeIgniter qué campos se pueden insertar o actualizar
-    // en la tabla 'paquetes'. En este caso, el id, nombre, nacionalidad, equipo, numero_coche e imagen.
-    protected $allowedFields = ['id', 'nombre', 'nacionalidad', 'equipo', 'numero_coche', 'imagen'];
+    // en la tabla 'paquetes'. En este caso, el id, destino, hotel, transporte, dias, stock, imagen e categoria.
+    protected $allowedFields = ['id', 'destino', 'hotel', 'transporte', 'dias', 'stock', 'imagen', 'categoria'];
     // Función que retorna todos los paquetes almacenados en la base de datos.
     public function getPaquetes()
     {
@@ -25,22 +25,23 @@ class PaquetesModel extends Model
         return $this->where('id', $id)->first();
     }
     // Función para crear un paquete.
-    // Recibe destino, hotel, transporte, dias, stock e imagen como parámetros.
-    public function savePaquete($destino, $hotel, $transporte, $dias, $stock, $imagen)
+    // Recibe destino, hotel, transporte, dias, stock, imagen e categoria como parámetros.
+    public function savePaquete($destino, $hotel, $transporte, $dias, $stock, $imagen, $categoria)
     {
-        // Indicamos que vamos a crear un paquete con ese 'destino', 'hotel', 'transporte', 'dias', 'stock' e 'imagen'.
+        // Indicamos que vamos a crear un paquete con ese 'destino', 'hotel', 'transporte', 'dias', 'stock', 'imagen' e 'categoria'.
         $this->save([
             'destino' => $destino,
             'hotel' => $hotel,
             'transporte' => $transporte,
             'dias' => $dias,
             'stock' => $stock,
-            'imagen' => $imagen
+            'imagen' => $imagen,
+            'categoria' => $categoria
         ]);
     }
     // Función para modificar un paquete.
-    // Recibe el ID del paquete a modificar, el destino, el hotel, el transporte, los días, el stock y la imagen.
-    public function updatePaquete($id, $nuevoDestino, $nuevoHotel, $nuevoTransporte, $nuevoDias, $nuevoStock, $nuevoImagen)
+    // Recibe el ID del paquete a modificar, el destino, el hotel, el transporte, los días, el stock, la imagen y la categoria.
+    public function updatePaquete($id, $nuevoDestino, $nuevoHotel, $nuevoTransporte, $nuevoDias, $nuevoStock, $nuevoImagen, $nuevoCategoria)
     {
         // Construimos el array de datos a actualizar
         $data = [
@@ -49,7 +50,8 @@ class PaquetesModel extends Model
             'transporte' => $nuevoTransporte,
             'dias' => $nuevoDias,
             'stock' => $nuevoStock,
-            'imagen' => $nuevoImagen
+            'imagen' => $nuevoImagen,
+            'categoria' => $nuevoCategoria
         ];
         // Solo actualiza la imagen si se subió una nueva
         if ($nuevoImagen) {
