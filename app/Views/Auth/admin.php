@@ -11,7 +11,13 @@
     <h2>Bienvenido <?= $username ?></h2>
 
     <p>Esta es la vista del panel de administrador.</p>
-    <a href="<?= site_url('auth/logout') ?>">Cerrar sesión</a>
+    <nav>
+        <ul>
+            <li><a href="<?= site_url('paquetes') ?>">Gestionar Paquetes</a></li>
+            <li><a href="<?= site_url('paquetes/add') ?>">Agregar Paquete</a></li>
+            <li><a href="<?= site_url('auth/logout') ?>">Cerrar sesión</a></li>
+        </ul>
+    </nav>
 </body>
 
 </html>

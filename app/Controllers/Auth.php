@@ -92,11 +92,8 @@ class Auth extends BaseController
 
     public function admin()
     {
-        // Verificar si la sesión existe y si es admin
-        if (!$this->session->has('nombre') || $this->session->get('tipo_usuario') !== 'admin') {
-            return redirect()->to('/auth/login');
-        }
-
+        // La ruta '/auth/admin' está protegida por el filtro 'isAdmin'.
+        // Aquí solo se renderiza la vista de administración.
         echo view('auth/admin', ['username' => $this->session->get('nombre')]);
     }
 
