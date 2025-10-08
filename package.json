@@ -1,0 +1,28 @@
+{
+  "name": "holamundo_tp",
+  "version": "1.0.0",
+  "description": "CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure. More information can be found at the [official site](https://codeigniter.com).",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tailwindcss -i ./public/css/input.css -o ./public/css/styles.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nagustindev/holamundoviajes-php-unla.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nagustindev/holamundoviajes-php-unla/issues"
+  },
+  "homepage": "https://github.com/nagustindev/holamundoviajes-php-unla#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.18"
+  }
+}
