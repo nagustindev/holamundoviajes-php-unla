@@ -51,7 +51,6 @@ class PaquetesModel extends Model
             'transporte' => $nuevoTransporte,
             'dias' => $nuevoDias,
             'stock' => $nuevoStock,
-            'imagen' => $nuevoImagen,
             'categoria' => $nuevoCategoria,
             'precio' => $nuevoPrecio
         ];

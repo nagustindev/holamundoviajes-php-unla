@@ -13,12 +13,6 @@
             </a>
         </li>
         <li>
-            <a href="<?= base_url('') ?>" class="flex items-center gap-2">
-                <i class="fa-solid fa-phone"></i>
-                <p>Contacto</p>
-            </a>
-        </li>
-        <li>
             <a href="<?= base_url('auth/login') ?>" class="flex items-center gap-2">
                 <i class="fa-solid fa-circle-user"></i>
                 <p>Iniciar Sesión</p>

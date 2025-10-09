@@ -62,7 +62,7 @@
                                     class="bg-green-700 rounded-xl h-12 w-1/4 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[184px] z-10 duration-500">
                                     <i class="fa-solid fa-plus" style="color: #ffffff;"></i>
                                 </div>
-                                <p class="translate-x-2 text-sm text-white">Agregar Paquete</p>
+                                <p class="translate-x-2 text-xs text-white">Agregar Paquete</p>
                             </button>
                         </li>
                     </ul>
@@ -73,39 +73,48 @@
 
     <!-- Modales (parciales) -->
     <?= view('partials/paquetes/_form_add_modal') ?>
-
-    <section>
+    <section class="py-8 bg-gray-100 min-h-screen">
         <?php if (!empty($paquetes) && is_array($paquetes)): ?>
-            <div class="container mx-auto px-4 py-8 max-w-md">
+            <div class="container mx-auto px-4 py-8 grid grid-cols-2 gap-6 max-w-6xl">
                 <?php foreach ($paquetes as $p): ?>
-                    <div class="container mx-auto px-4 py-6">
-                        <div class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
-                            <div class="bg-white grid place-items-center">
+                    <div class="w-full">
+                        <div class="flex rounded-xl shadow-lg border border-gray-200 bg-white overflow-hidden">
+                            <div class="w-64 flex-shrink-0 bg-gray-100">
                                 <?php if (!empty($p['imagen'])): ?>
-                                    <img src="<?= base_url($p['imagen']) ?>" alt="<?= esc($p['destino']) ?>" class="rounded-xl object-cover" />
+                                    <img src="<?= base_url($p['imagen']) ?>" alt="<?= esc($p['destino']) ?>" class="block w-full h-full object-cover" />
                                 <?php else: ?>
-                                    <img src="https://via.placeholder.com/400x300?text=Sin+imagen" alt="Sin foto" class="rounded-xl object-cover" />
+                                    <img src="https://via.placeholder.com/400x300?text=Sin+imagen" alt="Sin foto" class="block w-full h-full object-cover" />
                                 <?php endif; ?>
                             </div>
 
-                            <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
-                                <div class="flex justify-between items-center">
-                                    <p class="text-gray-500 font-medium hidden md:block"><?= esc($p['categoria'] ?? 'Paquete') ?></p>
+                            <div class="flex-1 p-4 min-w-0 flex flex-col">
+                                <div class="mb-2 flex-shrink-0">
+                                    <span class="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
+                                        <?= esc($p['categoria'] ?? 'Paquete') ?>
+                                    </span>
                                 </div>
 
-                                <h3 class="font-black text-gray-800 md:text-3xl text-xl"><?= esc($p['destino']) ?></h3>
-                                <div class="mt-2 flex items-center justify-between">
-                                    <div class="text-sm text-gray-700">
-                                        <span><strong><?= esc($p['dias']) ?> días, <?= esc(($p['dias'] ?? 0) - 1) ?> noches</strong></span>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2 block truncate w-full flex-shrink-0">
+                                    <?= esc($p['destino'] ?? '') ?>
+                                </h3>
+
+                                <div class="text-sm text-gray-600 mb-3 flex-shrink-0">
+                                    <div class="mb-1">
+                                        <span class="font-medium"><?= esc($p['dias']) ?> días, <?= esc($p['dias'] - 1) ?> noches</span>
+                                    </div>
+                                    <div class="truncate w-full">
+                                        <?= esc($p['transporte'] ?? '') ?> • <?= esc($p['hotel'] ?? '') ?>
                                     </div>
                                 </div>
-                                <p class="md:text-lg text-gray-500 text-base"><?= esc($p['transporte'] ?? '') ?> + <?= esc($p['hotel'] ?? '') ?></p>
-                                <p class="text-xl font-black text-gray-800">
-                                    <?= isset($p['precio']) ? '$' . esc($p['precio']) : '$110' ?>
-                                    <span class="font-normal text-gray-600 text-base">/por persona</span>
-                                </p>
-                                <div class="flex gap-2">
-                                    <button type="button"
+
+                                <div class="mt-auto min-h-0">
+                                    <p class="text-2xl font-bold text-gray-800">
+                                        <?= isset($p['precio']) ? '$' . esc($p['precio']) : '$110' ?>
+                                        <span class="text-base font-normal text-gray-600">/por persona</span>
+                                    </p>
+                                    <p class="text-sm text-gray-600">Stock: <?= esc($p['stock'] ?? 'No especificado') ?></p>
+                                    <div class="mt-3 flex gap-2 flex-nowrap overflow-x-auto">
+                                        <button type="button"
                                             class="px-3 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
                                             onclick="openEditForm(this)"
                                             data-id="<?= $p['id'] ?>"
@@ -117,9 +126,10 @@
                                             data-stock="<?= esc($p['stock'] ?? '') ?>"
                                             data-precio="<?= esc($p['precio'] ?? '') ?>"
                                             data-imagen="<?= esc($p['imagen'] ?? '') ?>">
-                                        Editar
-                                    </button>
-                                    <a href="<?= site_url('/paquetes/delete/' . $p['id']) ?>" onclick="return confirm('¿Eliminar paquete?')" class="px-3 py-1 text-sm bg-red-600 text-white rounded hover:bg-red-700">Eliminar</a>
+                                            Editar
+                                        </button>
+                                        <a href="<?= site_url('/paquetes/delete/' . $p['id']) ?>" onclick="return confirm('¿Eliminar paquete?')" class="px-3 py-1 text-sm bg-red-600 text-white rounded hover:bg-red-700">Eliminar</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -130,10 +140,10 @@
             <p class="text-center py-8 text-gray-600">No hay paquetes disponibles.</p>
         <?php endif; ?>
     </section>
-
     <?= view('partials/paquetes/_form_edit_modal') ?>
-
     <?= view('partials/paquetes/_forms_scripts') ?>
+
+    <?= view('partials/_footer') ?>
 </body>
 
 </html>

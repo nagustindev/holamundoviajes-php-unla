@@ -35,13 +35,6 @@
                         <p class="translate-x-2 text-sm text-white">Panel de Admin</p>
                     </button>
                 </div>
-                
-                <div class="flex space-x-3">
-                    <button class="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200 font-medium">
-                        <i class="fa-solid fa-plus mr-2"></i>
-                        Nueva Venta
-                    </button>
-                </div>
             </div>
         </div>
     </div>
