@@ -9,7 +9,7 @@ class AuthModel extends Model
     // Definición de la tabla y campos permitidos
     protected $table = 'usuarios';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nombre', 'email', 'contraseña', 'tipo_usuario'];
+    protected $allowedFields = ['email', 'contraseña', 'tipo_usuario'];
 
     // Buscamos al usuario por email
     public function getByEmail($email)

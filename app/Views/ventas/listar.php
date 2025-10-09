@@ -1,42 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-AR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url() ?>css/styles.css">
-    <title>Ventas</title>
+    <script src="https://kit.fontawesome.com/a793e0e3dc.js" crossorigin="anonymous"></script>
+    <title>Gestión de Ventas - HolaMundo Viajes</title>
 </head>
 
-<header>
-    <nav>
-        <ul>
-            <li>
-                <h1>Lista de ventas</h1>
-            </li>
-        </ul>
-    </nav>
-</header>
+<body class="bg-gray-50 min-h-screen">
+    <?= view('partials/nav') ?>
+    <div class="bg-white shadow-sm border-b">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="p-3 bg-green-100 rounded-lg">
+                        <i class="fa-solid fa-chart-line text-green-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900 font-fredoka">Gestión de Ventas</h1>
+                    </div>
+                    <button
+                        class="bg-blue-600 text-center w-48 rounded-2xl h-14 relative text-black text-xl font-semibold group"
+                        type="button"
+                        onclick="window.location.href='<?= base_url('auth/admin') ?>'">
+                        <div
+                            class="bg-blue-100 rounded-xl h-12 w-1/4 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[184px] z-10 duration-500">
+                            <i class="fa-solid fa-arrow-left" style="color: #2563eb;"></i>
+                        </div>
+                        <p class="translate-x-2 text-sm text-white">Panel de Admin</p>
+                    </button>
+                </div>
+                
+                <div class="flex space-x-3">
+                    <button class="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200 font-medium">
+                        <i class="fa-solid fa-plus mr-2"></i>
+                        Nueva Venta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<body>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>ID_USUARIO</th>
-            <th>ID_PAQUETE</th>
-            <th>Cantidad</th>
-            <th>Fecha_venta</th>
-        </tr>
-        <?php foreach ($ventas as $v): ?>
-            <tr>
-                <td><?= $v['id'] ?></td>
-                <td><?= $v['id_usuario'] ?></td>
-                <td><?= $v['id_paquete'] ?></td>
-                <td><?= $v['cantidad'] ?></td>
-                <td><?= $v['fecha_venta'] ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-2 gap-6 mb-8">
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">Total Ventas</p>
+                        <p class="text-2xl font-bold text-gray-900"><?= count($ventas) ?></p>
+                    </div>
+                    <div class="p-3 bg-green-100 rounded-lg">
+                        <i class="fa-solid fa-shopping-cart text-green-600"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">Cantidad Total</p>
+                        <p class="text-2xl font-bold text-gray-900">
+                            <?= array_sum(array_column($ventas, 'cantidad')) ?>
+                        </p>
+                    </div>
+                    <div class="p-3 bg-blue-100 rounded-lg">
+                        <i class="fa-solid fa-box text-blue-600"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table Card -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <!-- Table Header -->
+            <div class="px-6 py-4 border-b border-gray-200 bg-gray-50">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-gray-900">Lista de Ventas</h3>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gray-50 border-b border-gray-200">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Usuario</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Paquete</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cantidad</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <?php foreach ($ventas as $v): ?>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                    #<?= $v['id'] ?>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                            <i class="fa-solid fa-user text-blue-600 text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm font-medium text-gray-900">Usuario #<?= $v['id_usuario'] ?></div>
+                                            <div class="text-sm text-gray-500">Cliente del sistema</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                                            <i class="fa-solid fa-suitcase-rolling text-green-600 text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm font-medium text-gray-900">Paquete #<?= $v['id_paquete'] ?></div>
+                                            <div class="text-sm text-gray-500">Paquete turístico</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                        <i class="fa-solid fa-box mr-1"></i>
+                                        <?= $v['cantidad'] ?> unidades
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900"><?= date('d/m/Y', strtotime($v['fecha_venta'])) ?></div>
+                                    <div class="text-sm text-gray-500"><?= date('H:i', strtotime($v['fecha_venta'])) ?></div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <div class="flex items-center space-x-2">
+                                        <button class="text-blue-600 hover:text-blue-900 transition-colors duration-200">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                        <button class="text-indigo-600 hover:text-indigo-900 transition-colors duration-200">
+                                            <i class="fa-solid fa-edit"></i>
+                                        </button>
+                                        <button class="text-red-600 hover:text-red-900 transition-colors duration-200"
+                                                onclick="return confirm('¿Eliminar venta?')">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

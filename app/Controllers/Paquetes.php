@@ -13,13 +13,6 @@ class Paquetes extends BaseController
         $this->paquetesModel = new PaquetesModel();
     }
 
-    // Muestra el listado de paquetes
-    public function list()
-    {
-        $data['paquetes'] = $this->paquetesModel->getPaquetes(); // Obtiene todos los paquetes
-        return view('paquetes/listar', $data); // Carga la vista con los datos
-    }
-
     public function add()
     {
         return view('paquetes/agregar'); // Muestra el formulario de creación
@@ -57,7 +50,7 @@ class Paquetes extends BaseController
             'imagen' => $rutaImagen,
             'categoria' => $categoria
         ]);
-        return redirect()->to('/paquetes');
+        return redirect()->to('auth/admin');
     }
     // Procesa el formulario de edición.
     // Actualiza los datos de un paquete existente.

@@ -25,7 +25,7 @@
         <p>Stock: <input type="text" name="stock" value="<?= $paquete['stock'] ?>"></p>
         <p>Imagen actual:</p>
         <?php if (!empty($paquete['imagen'])): ?>
-            <img src="<?= base_url($paquete['imagen']) ?>" alt="<?= $paquete['nombre'] ?>" width="100"><br>
+            <img src="<?= base_url($paquete['imagen']) ?>" alt="<?= $paquete['destino'] ?>" width="100"><br>
         <?php else: ?>
             Sin imagen<br>
         <?php endif; ?>

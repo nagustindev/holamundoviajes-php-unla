@@ -17,7 +17,6 @@ $routes->get('/usuarios', 'Usuarios::list', ['filter' => 'isAdmin']); // Listado
 $routes->get('/ventas', 'Ventas::list', ['filter' => 'isAdmin']); // Listado de ventas
 // Rutas de paquetes protegidas: solo accesibles por admin
 $routes->group('paquetes', ['filter' => 'isAdmin'], function($routes){
-    $routes->get('', 'Paquetes::list'); // Listado de paquetes
     $routes->get('add', 'Paquetes::add'); // Formulario para agregar
     $routes->get('edit/(:num)', 'Paquetes::edit/$1'); // Formulario de edición
     $routes->post('save', 'Paquetes::save'); // Guardar nuevo paquete

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\AuthModel;
+use App\Models\PaquetesModel;
 
 class Auth extends BaseController
 {
@@ -43,10 +44,10 @@ class Auth extends BaseController
             return view('auth/login', ['error' => 'Contraseña inválida']);
         }
 
-        // Guardar sesión
-        $this->session->set('nombre', $user['nombre']);
-        $this->session->set('user_id', $user['id']);
-        $this->session->set('tipo_usuario', $user['tipo_usuario']);
+    // Guardar sesión (incluye email para mostrar en vistas)
+    $this->session->set('user_id', $user['id']);
+    $this->session->set('tipo_usuario', $user['tipo_usuario']);
+    $this->session->set('email', $user['email']);
 
         // Redirigir según tipo de usuario
         if ($user['tipo_usuario'] === 'admin') {
@@ -66,7 +67,6 @@ class Auth extends BaseController
     public function register_post()
     {
         // Obtener datos del formulario
-        $nombre = $this->request->getPost('nombre');
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('contraseña');
 
@@ -80,7 +80,6 @@ class Auth extends BaseController
 
         // Guardar nuevo usuario
         $this->authModel->insert([
-            'nombre' => $nombre,
             'email' => $email,
             'contraseña' => $hash,
             'tipo_usuario' => 'cliente'
@@ -93,8 +92,12 @@ class Auth extends BaseController
     public function admin()
     {
         // La ruta '/auth/admin' está protegida por el filtro 'isAdmin'.
-        // Aquí solo se renderiza la vista de administración.
-        echo view('auth/admin', ['username' => $this->session->get('nombre')]);
+        // Cargamos los paquetes para mostrarlos directamente en el panel admin.
+        $paquetesModel = new PaquetesModel();
+        $data['paquetes'] = $paquetesModel->getPaquetes();
+        $data['email'] = $this->session->get('email');
+
+        return view('auth/admin', $data);
     }
 
     // Logout

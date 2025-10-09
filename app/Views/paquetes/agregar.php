@@ -14,9 +14,14 @@
         <p>Destino: <input type="text" name="destino"></p>
         <p>Categoría:
             <select name="categoria" required>
-                <option value="1">Nacional</option>
-                <option value="2">Internacional</option>
-                <option value="3">Promocional</option>
+                <option value="Familiar">Familiar</option>
+                <option value="Aventura">Aventura</option>
+                <option value="Crucero">Crucero</option>
+                <option value="Playa">Playa</option>
+                <option value="Montaña">Montaña</option>
+                <option value="Ciudad">Ciudad</option>
+                <option value="Safari">Safari</option>
+                <option value="Romántico">Romántico</option>
             </select>
         </p>
         <p>Hotel: <input type="text" name="hotel"></p>
