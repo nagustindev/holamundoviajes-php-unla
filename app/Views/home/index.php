@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <?= view('partials/nav') ?>
+    <?= view('partials/_nav') ?>
 
     <section>
         <?php if (!empty($paquetes) && is_array($paquetes)): ?>

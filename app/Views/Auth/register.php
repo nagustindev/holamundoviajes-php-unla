@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <?= view('partials/nav') ?>
+  <?= view('partials/_nav') ?>
   <section class="min-h-screen flex items-center justify-center bg-gray-100">
     <div class="border border-gray-100 shadow w-[360px] p-8 rounded-md bg-white">
       <?php if (isset($error) && $error): ?>

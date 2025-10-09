@@ -13,17 +13,6 @@ class Paquetes extends BaseController
         $this->paquetesModel = new PaquetesModel();
     }
 
-    public function add()
-    {
-        return view('paquetes/agregar'); // Muestra el formulario de creación
-    }
-
-    public function edit($id)
-    {
-        $data['paquete'] = $this->paquetesModel->getPaquete($id); // Busca al paquete por su ID
-        return view('paquetes/editar', $data);
-    }
-
     // Procesa el formulario de creación.
     // Guarda un nuevo paquete en la base de datos.
     public function save()
@@ -33,6 +22,7 @@ class Paquetes extends BaseController
         $transporte = $this->request->getPost('transporte');
         $dias = $this->request->getPost('dias');
         $stock = $this->request->getPost('stock');
+        $precio = $this->request->getPost('precio');
         $imagen = $this->request->getFile('imagen');
         $rutaImagen = null;
         $categoria = $this->request->getPost('categoria');
@@ -48,7 +38,8 @@ class Paquetes extends BaseController
             'dias' => $dias,
             'stock' => $stock,
             'imagen' => $rutaImagen,
-            'categoria' => $categoria
+            'categoria' => $categoria,
+            'precio' => $precio
         ]);
         return redirect()->to('auth/admin');
     }
@@ -62,6 +53,7 @@ class Paquetes extends BaseController
         $nuevosDias = $this->request->getPost('dias');
         $nuevoStock = $this->request->getPost('stock');
         $nuevoImagen = $this->request->getFile('imagen');
+        $nuevoPrecio = $this->request->getPost('precio');
         $rutaImagen = null;
         $categoria = $this->request->getPost('categoria');
         if ($nuevoImagen && $nuevoImagen->isValid() && !$nuevoImagen->hasMoved()) {
@@ -69,14 +61,14 @@ class Paquetes extends BaseController
             $nuevoImagen->move(ROOTPATH . 'public/uploads', $nombreArchivo);
             $rutaImagen = 'uploads/' . $nombreArchivo;
         }
-        // Siempre pasar 8 argumentos, aunque la imagen sea null
-        $this->paquetesModel->updatePaquete($id, $nuevoDestino, $nuevoHotel, $nuevoTransporte, $nuevosDias, $nuevoStock, $rutaImagen, $categoria);
-        return redirect()->to('/paquetes');
+        // Siempre pasar 9 argumentos, aunque la imagen sea null
+        $this->paquetesModel->updatePaquete($id, $nuevoDestino, $nuevoHotel, $nuevoTransporte, $nuevosDias, $nuevoStock, $rutaImagen, $categoria, $nuevoPrecio);
+        return redirect()->to('auth/admin');
     }
     // Elimina un paquete existente.
     public function delete($id)
     {
         $this->paquetesModel->deletePaquete($id); // Borra el paquete de la base de datos
-        return redirect()->to('/paquetes');
+        return redirect()->to('auth/admin');
     }
 }

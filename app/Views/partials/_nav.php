@@ -7,13 +7,13 @@
             </a>
         </li>
         <li>
-            <a href="<?= base_url('paquetes') ?>" class="flex items-center gap-2">
+            <a href="<?= base_url('') ?>" class="flex items-center gap-2">
                 <i class="fa-solid fa-suitcase-rolling"></i>
                 <p>Paquetes</p>
             </a>
         </li>
         <li>
-            <a href="<?= base_url('contacto') ?>" class="flex items-center gap-2">
+            <a href="<?= base_url('') ?>" class="flex items-center gap-2">
                 <i class="fa-solid fa-phone"></i>
                 <p>Contacto</p>
             </a>
@@ -24,5 +24,14 @@
                 <p>Iniciar Sesión</p>
             </a>
         </li>
+        <?php if (session()->get('tipo_usuario') === 'admin'): ?>
+        <li>
+            <a href="<?= base_url('auth/admin') ?>" class="flex items-center gap-2">
+                <i class="fa-solid fa-user-shield"></i>
+                <p>Panel de Admin</p>
+            </a>
+        </li>
+        <?php endif;?>
+        
     </ul>
 </nav>

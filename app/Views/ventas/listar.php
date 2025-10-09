@@ -13,7 +13,7 @@
 </head>
 
 <body class="bg-gray-50 min-h-screen">
-    <?= view('partials/nav') ?>
+    <?= view('partials/_nav') ?>
     <div class="bg-white shadow-sm border-b">
         <div class="container mx-auto px-4 py-6">
             <div class="flex items-center justify-between">
