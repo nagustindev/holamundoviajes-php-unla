@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="<?= base_url('favicon.ico') ?>" sizes="any">
+    <link rel="shortcut icon" href="<?= base_url('favicon.ico') ?>" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
@@ -52,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                 <div class="flex items-center justify-between">
                     <div>
@@ -137,7 +139,7 @@
                                             <i class="fa-solid fa-edit"></i>
                                         </button>
                                         <button class="text-red-600 hover:text-red-900 transition-colors duration-200"
-                                                onclick="return confirm('¿Eliminar venta?')">
+                                            onclick="return confirm('¿Eliminar venta?')">
                                             <i class="fa-solid fa-trash"></i>
                                         </button>
                                     </div>
