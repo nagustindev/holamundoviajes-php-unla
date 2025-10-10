@@ -597,6 +597,10 @@ video {
   pointer-events: none;
 }
 
+.visible{
+  visibility: visible;
+}
+
 .static{
   position: static;
 }
@@ -763,12 +767,12 @@ video {
   max-height: 100%;
 }
 
-.min-h-screen{
-  min-height: 100vh;
-}
-
 .min-h-0{
   min-height: 0px;
+}
+
+.min-h-screen{
+  min-height: 100vh;
 }
 
 .w-1\/4{
@@ -838,10 +842,6 @@ video {
 
 .grid-cols-3{
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.flex-row{
-  flex-direction: row;
 }
 
 .flex-col{
@@ -931,10 +931,6 @@ video {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.text-ellipsis{
-  text-overflow: ellipsis;
 }
 
 .whitespace-nowrap{

@@ -75,7 +75,7 @@ class Auth extends BaseController
             return view('auth/register', ['error' => 'El email ya está registrado']);
         }
 
-        // Hashear la contraseña
+        // Hashear la contraseña (para mas seguridad)
         $hash = password_hash($password, PASSWORD_DEFAULT);
 
         // Guardar nuevo usuario

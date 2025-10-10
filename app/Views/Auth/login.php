@@ -27,12 +27,12 @@
 
       <div class="mt-10">
         <h1 class="text-2xl font-semibold">
-          Tu próximo viaje comienza aquí
+          Saluda tus próximas vacaciones
         </h1>
       </div>
 
       <p class="text-sm mt-4">
-        Iniciando sesion podras acceder a todas nuestras ofertas y promociones exclusivas.
+        Iniciando sesión podrás acceder a todas nuestras ofertas y promociones exclusivas.
       </p>
       <form action="<?= base_url('auth/valida_login') ?>" method="post">
         <?= csrf_field() ?>
