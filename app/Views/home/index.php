@@ -17,6 +17,19 @@
 <body>
     <?= view('partials/_nav') ?>
 
+    <!-- Mensajes de éxito/error -->
+    <?php if (session()->getFlashdata('success')): ?>
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mx-4 mt-4">
+            <?= session()->getFlashdata('success') ?>
+        </div>
+    <?php endif; ?>
+    
+    <?php if (session()->getFlashdata('error')): ?>
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mx-4 mt-4">
+            <?= session()->getFlashdata('error') ?>
+        </div>
+    <?php endif; ?>
+
     <?= view('partials/paquetes/_package_detail_modal') ?>
     <section class="py-8 bg-gray-100 min-h-screen">
         <?php if (!empty($paquetes) && is_array($paquetes)): ?>
@@ -47,10 +60,33 @@
                             </div>
 
                             <div class="flex-1 p-4 min-w-0 flex flex-col">
-                                <div class="mb-2 flex-shrink-0">
+                                <div class="mb-2 flex-shrink-0 flex flex-wrap gap-1">
                                     <span class="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
                                         <?= esc($p['categoria'] ?? 'Paquete') ?>
                                     </span>
+                                    
+                                    <!-- Mensajes de estado -->
+                                    <?php if (!empty($p['estados'])): ?>
+                                        <?php foreach ($p['estados'] as $estado): ?>
+                                            <?php
+                                            $clases = [
+                                                'agotado' => 'bg-red-100 text-red-800',
+                                                'pocas_plazas' => 'bg-yellow-100 text-yellow-800',
+                                                'cliente_frecuente' => 'bg-purple-100 text-purple-800',
+                                                'destino_preferido' => 'bg-green-100 text-green-800'
+                                            ];
+                                            $textos = [
+                                                'agotado' => 'Agotado',
+                                                'pocas_plazas' => 'Pocas plazas',
+                                                'cliente_frecuente' => 'Cliente frecuente',
+                                                'destino_preferido' => 'Destino preferido'
+                                            ];
+                                            ?>
+                                            <span class="inline-block px-2 py-1 text-xs rounded-full <?= $clases[$estado] ?? 'bg-gray-100 text-gray-800' ?>">
+                                                <?= $textos[$estado] ?? ucfirst($estado) ?>
+                                            </span>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </div>
 
                                 <h3 class="text-xl font-bold text-gray-800 mb-2 block truncate w-full flex-shrink-0">

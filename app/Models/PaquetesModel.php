@@ -13,6 +13,7 @@ class PaquetesModel extends Model
     // Sirve para indicarle a CodeIgniter qué campos se pueden insertar o actualizar
     // en la tabla 'paquetes'. En este caso, el id, destino, hotel, transporte, dias, stock, imagen e categoria.
     protected $allowedFields = ['id', 'destino', 'hotel', 'transporte', 'dias', 'stock', 'imagen', 'categoria', 'precio'];
+
     // Función que retorna todos los paquetes almacenados en la base de datos.
     public function getPaquetes()
     {
@@ -65,5 +66,75 @@ class PaquetesModel extends Model
     public function deletePaquete($id)
     {
         $this->delete($id);
+    }
+
+    //Verificar stock suficiente
+    public function verificarStock($id, $cantidad = 1)
+    {
+        $paquete = $this->find($id);
+        return $paquete && $paquete['stock'] >= $cantidad;
+    }
+
+    //Descontar stock al comprar
+    public function descontarStock($id, $cantidad = 1)
+    {
+        $paquete = $this->find($id);
+        if ($paquete && $paquete['stock'] >= $cantidad) {
+            return $this->update($id, ['stock' => $paquete['stock'] - $cantidad]);
+        }
+        return false;
+    }
+
+    //Obtener paquetes con info adicional
+    public function getPaquetesConInfoAdicional($userId = null)
+    {
+        $paquetes = $this->findAll();
+        $stockMinimo = 5; // Definir el stock mínimo
+
+        $db = \Config\Database::connect();
+        $masVendidoQuery = $db->query("
+            SELECT id_paquete, SUM(cantidad) as total_vendido 
+            FROM ventas 
+            GROUP BY id_paquete 
+            ORDER BY total_vendido DESC 
+            LIMIT 1
+        ");
+        $masVendido = $masVendidoQuery->getRow();
+        $destinoPreferido = $masVendido ? $masVendido->id_paquete : null;
+
+        foreach ($paquetes as &$paquete) {
+            $paquete['estados'] = [];
+
+            // Agotado
+            if ($paquete['stock'] == 0) {
+                $paquete['estados'][] = 'agotado';
+            }
+            // Pocas plazas
+            elseif ($paquete['stock'] < $stockMinimo) {
+                $paquete['estados'][] = 'pocas_plazas';
+            }
+
+            // Destino preferido
+            if ($paquete['id'] == $destinoPreferido) {
+                $paquete['estados'][] = 'destino_preferido';
+            }
+
+            // Cliente frecuente (si hay usuario logueado)
+            if ($userId && $this->esClienteFrecuente($userId)) {
+                $paquete['estados'][] = 'cliente_frecuente';
+            }
+        }
+
+        return $paquetes;
+    }
+
+    // Verificar si es cliente frecuente usando tu tabla ventas
+    private function esClienteFrecuente($userId)
+    {
+        $db = \Config\Database::connect();
+        $compras = $db->table('ventas')
+                     ->where('id_usuario', $userId)
+                     ->countAllResults();
+        return $compras >= 3;
     }
 }

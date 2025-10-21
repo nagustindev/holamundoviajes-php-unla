@@ -1,5 +1,13 @@
 <script>
     function openBuyModal(btn) {
+        const stock = btn.dataset.stock || 'No especificado';
+        
+        // Verificar si está agotado - si es 0, no abrir el modal
+        if (parseInt(stock) === 0 || stock === '0') {
+            alert('Este paquete está agotado');
+            return;
+        }
+
         const modal = document.getElementById('buyModal');
 
         const id = btn.dataset.id || '';
@@ -8,7 +16,6 @@
         const hotel = btn.dataset.hotel || '-';
         const transporte = btn.dataset.transporte || '-';
         const dias = parseInt(btn.dataset.dias || '0', 10) || 0;
-        const stock = btn.dataset.stock || 'No especificado';
         const precio = btn.dataset.precio || '-';
         const imagenUrl = btn.dataset.imagenUrl || '';
 
