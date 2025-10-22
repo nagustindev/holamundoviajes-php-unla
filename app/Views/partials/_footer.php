@@ -31,8 +31,11 @@
                         <li class="mb-2">
                             <a href="https://tailwindcss.com/" class="hover:underline ">Tailwind CSS</a>
                         </li>
-                        <li>
+                        <li class="mb-2">
                             <a href="https://flowbite.com/" class="hover:underline">Flowbite</a>
+                        </li>
+                        <li>
+                            <a href="https://fontawesome.com/" class="hover:underline">FontAwesome</a>
                         </li>
                     </ul>
                 </div>

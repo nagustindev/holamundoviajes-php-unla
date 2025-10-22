@@ -27,11 +27,11 @@
                         <h1 class="text-2xl font-bold text-gray-900 font-fredoka">Gestión de Ventas</h1>
                     </div>
                     <button
-                        class="bg-blue-600 text-center w-48 rounded-2xl h-14 relative text-black text-xl font-semibold group"
+                        class="bg-blue-600 text-center w-56 rounded-2xl h-14 relative text-black text-xl font-semibold group"
                         type="button"
                         onclick="window.location.href='<?= base_url('auth/admin') ?>'">
                         <div
-                            class="bg-blue-100 rounded-xl h-12 w-1/4 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[184px] z-10 duration-500">
+                            class="bg-blue-100 rounded-xl h-12 w-1/4 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[216px] z-10 duration-500">
                             <i class="fa-solid fa-arrow-left" style="color: #2563eb;"></i>
                         </div>
                         <p class="translate-x-2 text-sm text-white">Panel de Admin</p>
@@ -89,7 +89,6 @@
                             <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Paquete</th>
                             <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cantidad</th>
                             <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha</th>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
@@ -104,8 +103,8 @@
                                             <i class="fa-solid fa-user text-blue-600 text-sm"></i>
                                         </div>
                                         <div>
-                                            <div class="text-sm font-medium text-gray-900">Usuario #<?= $v['id_usuario'] ?></div>
-                                            <div class="text-sm text-gray-500">Cliente del sistema</div>
+                                            <div class="text-sm font-medium text-gray-900"><?= $v['usuario_email'] ?? 'Email no disponible' ?></div>
+                                            <div class="text-sm text-gray-500">ID: #<?= $v['id_usuario'] ?></div>
                                         </div>
                                     </div>
                                 </td>
@@ -115,8 +114,8 @@
                                             <i class="fa-solid fa-suitcase-rolling text-green-600 text-sm"></i>
                                         </div>
                                         <div>
-                                            <div class="text-sm font-medium text-gray-900">Paquete #<?= $v['id_paquete'] ?></div>
-                                            <div class="text-sm text-gray-500">Paquete turístico</div>
+                                            <div class="text-sm font-medium text-gray-900"><?= $v['paquete_destino'] ?? 'Destino no disponible' ?></div>
+                                            <div class="text-sm text-gray-500">ID: #<?= $v['id_paquete'] ?></div>
                                         </div>
                                     </div>
                                 </td>
@@ -129,20 +128,6 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm text-gray-900"><?= date('d/m/Y', strtotime($v['fecha_venta'])) ?></div>
                                     <div class="text-sm text-gray-500"><?= date('H:i', strtotime($v['fecha_venta'])) ?></div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <div class="flex items-center space-x-2">
-                                        <button class="text-blue-600 hover:text-blue-900 transition-colors duration-200">
-                                            <i class="fa-solid fa-eye"></i>
-                                        </button>
-                                        <button class="text-indigo-600 hover:text-indigo-900 transition-colors duration-200">
-                                            <i class="fa-solid fa-edit"></i>
-                                        </button>
-                                        <button class="text-red-600 hover:text-red-900 transition-colors duration-200"
-                                            onclick="return confirm('¿Eliminar venta?')">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </div>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

@@ -16,21 +16,20 @@
                     <div>
                         <label for="edit_destino" class="block text-sm font-medium text-gray-700 mb-2">Destino</label>
                         <input id="edit_destino" type="text" name="destino" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                     </div>
                     <div>
                         <label for="edit_categoria" class="block text-sm font-medium text-gray-700 mb-2">Categoría</label>
                         <select id="edit_categoria" name="categoria" required
-                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                             <option value="">Seleccionar categoría</option>
-                            <option value="Familiar">Familiar</option>
                             <option value="Aventura">Aventura</option>
-                            <option value="Crucero">Crucero</option>
-                            <option value="Playa">Playa</option>
-                            <option value="Montaña">Montaña</option>
-                            <option value="Ciudad">Ciudad</option>
-                            <option value="Safari">Safari</option>
+                            <option value="Relax">Relax</option>
+                            <option value="Cultural">Cultural</option>
+                            <option value="Familiar">Familiar</option>
                             <option value="Romántico">Romántico</option>
+                            <option value="Deportivo">Deportivo</option>
+                            <option value="Gastronómico">Gastronómico</option>
                         </select>
                     </div>
                 </div>
@@ -39,12 +38,18 @@
                     <div>
                         <label for="edit_hotel" class="block text-sm font-medium text-gray-700 mb-2">Hotel</label>
                         <input id="edit_hotel" type="text" name="hotel" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                     </div>
                     <div>
                         <label for="edit_transporte" class="block text-sm font-medium text-gray-700 mb-2">Transporte</label>
-                        <input id="edit_transporte" type="text" name="transporte" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        <select id="edit_transporte" name="transporte" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            <option value="">Seleccionar transporte</option>
+                            <option value="Vuelo">Vuelo</option>
+                            <option value="Micro">Micro</option>
+                            <option value="Crucero">Crucero</option>
+                            <option value="Tren">Tren</option>
+                        </select>
                     </div>
                 </div>
 
@@ -52,17 +57,17 @@
                     <div>
                         <label for="edit_dias" class="block text-sm font-medium text-gray-700 mb-2">Días</label>
                         <input id="edit_dias" type="number" name="dias" min="1" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                     </div>
                     <div>
                         <label for="edit_stock" class="block text-sm font-medium text-gray-700 mb-2">Stock</label>
                         <input id="edit_stock" type="number" name="stock" min="0" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                     </div>
                     <div>
                         <label for="edit_precio" class="block text-sm font-medium text-gray-700 mb-2">Precio</label>
                         <input id="edit_precio" type="number" name="precio" min="0" step="0.01" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                     </div>
                 </div>
 
@@ -80,11 +85,11 @@
 
                 <div class="flex items-center justify-end space-x-4 pt-4 border-t border-gray-200">
                     <button type="button" onclick="toggleEditForm()"
-                            class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
+                        class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
                         Cancelar
                     </button>
                     <button type="submit"
-                            class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                        class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">
                         <i class="fa-solid fa-save mr-2"></i>
                         Actualizar Paquete
                     </button>

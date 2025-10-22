@@ -57,14 +57,14 @@
                         </li>
                         <li>
                             <button
-                                class="bg-green-600 text-center w-48 rounded-2xl h-14 relative text-black text-xl font-semibold group"
+                                class="bg-green-600 text-center w-56 rounded-2xl h-14 relative text-black text-xl font-semibold group"
                                 type="button"
                                 onclick="toggleForm()">
                                 <div
-                                    class="bg-green-700 rounded-xl h-12 w-1/4 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[184px] z-10 duration-500">
+                                    class="bg-green-700 rounded-xl h-12 w-1/4 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[216px] z-10 duration-500">
                                     <i class="fa-solid fa-plus" style="color: #ffffff;"></i>
                                 </div>
-                                <p class="translate-x-2 text-xs text-white">Agregar Paquete</p>
+                                <p class="translate-x-2 text-sm text-white">Agregar Paquete</p>
                             </button>
                         </li>
                     </ul>
@@ -85,7 +85,7 @@
                                 <?php if (!empty($p['imagen'])): ?>
                                     <img src="<?= base_url($p['imagen']) ?>" alt="<?= esc($p['destino']) ?>" class="block w-full h-full object-cover" />
                                 <?php else: ?>
-                                    <img src="https://via.placeholder.com/400x300?text=Sin+imagen" alt="Sin foto" class="block w-full h-full object-cover" />
+                                    <img src="https://dummyimage.com/400x400/ffffff/000000.jpg&text=Sin+Foto" alt="Sin foto" class="block w-full h-full object-cover" />
                                 <?php endif; ?>
                             </div>
 

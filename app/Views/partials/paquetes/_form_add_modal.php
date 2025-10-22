@@ -15,12 +15,12 @@
                     <div>
                         <label for="add_destino" class="block text-sm font-medium text-gray-700 mb-2">Destino</label>
                         <input id="add_destino" type="text" name="destino" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                     </div>
                     <div>
                         <label for="add_categoria" class="block text-sm font-medium text-gray-700 mb-2">Categoría</label>
                         <select id="add_categoria" name="categoria" required
-                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                             <option value="">Seleccionar categoría</option>
                             <option value="Familiar">Familiar</option>
                             <option value="Aventura">Aventura</option>
@@ -38,12 +38,18 @@
                     <div>
                         <label for="add_hotel" class="block text-sm font-medium text-gray-700 mb-2">Hotel</label>
                         <input id="add_hotel" type="text" name="hotel" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                     </div>
                     <div>
                         <label for="add_transporte" class="block text-sm font-medium text-gray-700 mb-2">Transporte</label>
-                        <input id="add_transporte" type="text" name="transporte" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        <select id="add_transporte" name="transporte" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            <option value="">Seleccionar transporte</option>
+                            <option value="Vuelo">Vuelo</option>
+                            <option value="Micro">Micro</option>
+                            <option value="Crucero">Crucero</option>
+                            <option value="Tren">Tren</option>
+                        </select>
                     </div>
                 </div>
 
@@ -51,17 +57,17 @@
                     <div>
                         <label for="add_dias" class="block text-sm font-medium text-gray-700 mb-2">Días</label>
                         <input id="add_dias" type="number" name="dias" min="1" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                     </div>
                     <div>
                         <label for="add_stock" class="block text-sm font-medium text-gray-700 mb-2">Stock</label>
                         <input id="add_stock" type="number" name="stock" min="0" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                     </div>
                     <div>
                         <label for="add_precio" class="block text-sm font-medium text-gray-700 mb-2">Precio</label>
                         <input id="add_precio" type="number" name="precio" min="0" step="0.01" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                     </div>
                 </div>
 
@@ -79,11 +85,11 @@
 
                 <div class="flex items-center justify-end space-x-4 pt-4 border-t border-gray-200">
                     <button type="button" onclick="toggleForm()"
-                            class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
+                        class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
                         Cancelar
                     </button>
                     <button type="submit"
-                            class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700">
+                        class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700">
                         <i class="fa-solid fa-plus mr-2"></i>
                         Crear Paquete
                     </button>

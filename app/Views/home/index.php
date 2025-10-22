@@ -65,22 +65,28 @@
     </div>
 
 
-    <!-- Mensajes de éxito/error -->
-    <?php if (session()->getFlashdata('success')): ?>
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mx-4 mt-4">
-            <?= session()->getFlashdata('success') ?>
-        </div>
-    <?php endif; ?>
-
-    <?php if (session()->getFlashdata('error')): ?>
-        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mx-4 mt-4">
-            <?= session()->getFlashdata('error') ?>
-        </div>
-    <?php endif; ?>
-
     <?= view('partials/paquetes/_package_detail_modal') ?>
 
     <section class="py-8 bg-gray-100 min-h-screen">
+        <!-- Mensajes de éxito/error -->
+        <?php if (session()->getFlashdata('success')): ?>
+            <div class="flex items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50" role="alert">
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                    <?= session()->getFlashdata('success') ?>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if (session()->getFlashdata('error')): ?>
+            <div class=" flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50" role="alert">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <div>
+                    <?= session()->getFlashdata('error') ?>
+                </div>
+            </div>
+        <?php endif; ?>
+
         <div class="container mx-auto px-4 max-w-6xl">
             <h2 class="text-gray-800 font-bold text-3xl font-[Fredoka] mb-8">Paquetes turísticos para todos los gustos</h2>
             <?php if (!empty($paquetes) && is_array($paquetes)): ?>
@@ -109,7 +115,7 @@
                                     <?php if (!empty($p['imagen'])): ?>
                                         <img src="<?= base_url($p['imagen']) ?>" alt="<?= esc($p['destino']) ?>" class="block w-full h-full object-cover" />
                                     <?php else: ?>
-                                        <img src="https://via.placeholder.com/400x300?text=Sin+imagen" alt="Sin foto" class="block w-full h-full object-cover" />
+                                        <img src="https://dummyimage.com/600x400/ffffff/000000.jpg&text=Sin+Foto" alt="Sin foto" class="block w-full h-full object-cover" />
                                     <?php endif; ?>
                                 </div>
 

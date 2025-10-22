@@ -177,12 +177,22 @@
         // 2) Volcamos esos datos dentro de los inputs del formulario
         document.getElementById('edit_id').value          = id;
         document.getElementById('edit_destino').value     = destino;
-        document.getElementById('edit_categoria').value   = categoria;
         document.getElementById('edit_hotel').value       = hotel;
-        document.getElementById('edit_transporte').value  = transporte;
         document.getElementById('edit_dias').value        = dias;
         document.getElementById('edit_stock').value       = stock;
         document.getElementById('edit_precio').value      = precio;
+        
+        // 2.1) Mostrar correctamente las opciones seleccionadas en los selects
+        const categoriaSelect = document.getElementById('edit_categoria');
+        const transporteSelect = document.getElementById('edit_transporte');
+        
+        if (categoriaSelect) {
+            categoriaSelect.value = categoria;
+        }
+        
+        if (transporteSelect) {
+            transporteSelect.value = transporte;
+        }
 
         // 3) Manejo de la vista previa de imagen actual del paquete (si existe)
         const hint  = document.getElementById('editHint');

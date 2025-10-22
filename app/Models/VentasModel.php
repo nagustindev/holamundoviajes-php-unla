@@ -16,7 +16,10 @@ class VentasModel extends Model
     // Función que retorna todos los ventas almacenados en la base de datos.
     public function getVentas()
     {
-        return $this->findAll();
+        return $this->select('ventas.*, usuarios.email as usuario_email, paquetes.destino as paquete_destino')
+                    ->join('usuarios', 'usuarios.id = ventas.id_usuario', 'left')
+                    ->join('paquetes', 'paquetes.id = ventas.id_paquete', 'left')
+                    ->findAll();
     }
     // Función que retorna el venta que tenga el ID recibido por parámetro.
     public function getVenta($id)

@@ -27,11 +27,11 @@
                         <h1 class="text-2xl font-bold text-gray-900 font-fredoka">Gestión de Usuarios</h1>
                     </div>
                     <button
-                        class="bg-blue-600 text-center w-48 rounded-2xl h-14 relative text-black text-xl font-semibold group"
+                        class="bg-blue-600 text-center w-56 rounded-2xl h-14 relative text-black text-xl font-semibold group"
                         type="button"
                         onclick="window.location.href='<?= base_url('auth/admin') ?>'">
                         <div
-                            class="bg-blue-100 rounded-xl h-12 w-1/4 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[184px] z-10 duration-500">
+                            class="bg-blue-100 rounded-xl h-12 w-1/4 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[216px] z-10 duration-500">
                             <i class="fa-solid fa-arrow-left" style="color: #2563eb;"></i>
                         </div>
                         <p class="translate-x-2 text-sm text-white">Panel de Admin</p>
