@@ -50,4 +50,9 @@ class Home extends BaseController
             'fecha_venta' => date('Y-m-d H:i:s')
         ]);
     }
+
+    public function ayuda(): string
+    {
+        return view('ayuda/ayuda');
+    }
 }

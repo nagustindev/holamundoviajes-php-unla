@@ -7,6 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/auth/login', 'Auth::login', ['filter' => 'isUser']);
+$routes->get('/ayuda', 'Home::ayuda');
 $routes->get('/auth/register', 'Auth::register', ['filter' => 'isUser']);
 $routes->get('/auth/admin', 'Auth::admin', ['filter' => 'isAdmin']); // Panel de admin (Restringido a admins)
 $routes->post('/auth/valida_login', 'Auth::valida_login', ['filter' => 'isUser']);

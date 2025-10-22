@@ -13,7 +13,12 @@
                     <p>Paquetes</p>
                 </a>
             </li>
-          
+              <li>
+                <a href="<?= base_url('ayuda') ?>" class="flex items-center gap-2">
+                    <i class="fa-solid fa-circle-question"></i>
+                    <p>Ayuda</p>
+                </a>
+            </li>
         </div>
         <div class="flex gap-2 items-center">
             <li>
