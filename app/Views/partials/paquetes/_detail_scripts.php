@@ -1,12 +1,6 @@
 <script>
     function openBuyModal(btn) {
         const stock = btn.dataset.stock || 'No especificado';
-        
-        // Verificar si está agotado - si es 0, no abrir el modal
-        if (parseInt(stock) === 0 || stock === '0') {
-            alert('Este paquete está agotado');
-            return;
-        }
 
         const modal = document.getElementById('buyModal');
 
