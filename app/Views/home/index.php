@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="<?= base_url() ?>css/styles.css">
     <script src="https://kit.fontawesome.com/a793e0e3dc.js" crossorigin="anonymous"></script>
 
@@ -18,46 +19,51 @@
 <body>
     <?= view('partials/_nav') ?>
 
-    <!-- Hero Carousel Section -->
-    <section>
-        <!-- Embla Carousel -->
-        <div class="embla w-full relative">
-            <div class="embla__viewport overflow-hidden">
-                <div class="embla__container flex">
-                    <div class="embla__slide flex-none w-full min-w-0">
-                        <div class="h-96 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-4xl font-bold">
-                            Image 1
-                        </div>
-                    </div>
-                    <div class="embla__slide flex-none w-full min-w-0">
-                        <div class="h-96 bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center text-white text-4xl font-bold">
-                            Image 2
-                        </div>
-                    </div>
-                    <div class="embla__slide flex-none w-full min-w-0">
-                        <div class="h-96 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white text-4xl font-bold">
-                            Image 3
-                        </div>
-                    </div>
-                </div>
+
+
+    <div id="default-carousel" class="relative w-full" data-carousel="slide">
+        <!-- Carousel wrapper -->
+        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="<?= base_url('/uploads/1760054039_ebed9a812928007cbc27.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
-            
-            <!-- Botones de navegación superpuestos -->
-            <button class="embla__button embla__button--prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-full w-12 h-12 flex items-center justify-center cursor-pointer transition-all duration-200 shadow-lg hover:bg-white hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed z-10" type="button">
-                <i class="fa-solid fa-chevron-left text-gray-700"></i>
-            </button>
-            
-            <button class="embla__button embla__button--next absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm border border-gray-300 rounded-full w-12 h-12 flex items-center justify-center cursor-pointer transition-all duration-200 shadow-lg hover:bg-white hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed z-10" type="button">
-                <i class="fa-solid fa-chevron-right text-gray-700"></i>
-            </button>
-            
-            <!-- Dots superpuestos en la parte inferior -->
-            <div class="embla__dots absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 items-center z-10"></div>
+            <!-- Item 2 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="<?= base_url('/uploads/1760054039_ebed9a812928007cbc27.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
+            <!-- Item 3 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="<?= base_url('/uploads/1760054039_ebed9a812928007cbc27.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
+            <!-- Item 4 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="<?= base_url('/uploads/1760054039_ebed9a812928007cbc27.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="<?= base_url('/uploads/1760054039_ebed9a812928007cbc27.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
         </div>
+        <!-- Slider controls -->
+        <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                </svg>
+                <span class="sr-only">Previous</span>
+            </span>
+        </button>
+        <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                </svg>
+                <span class="sr-only">Next</span>
+            </span>
+        </button>
+    </div>
 
-
-        </div>
-    </section>
 
     <!-- Mensajes de éxito/error -->
     <?php if (session()->getFlashdata('success')): ?>
@@ -79,87 +85,87 @@
             <h2 class="text-gray-800 font-bold text-3xl font-[Fredoka] mb-8">Paquetes turísticos para todos los gustos</h2>
             <?php if (!empty($paquetes) && is_array($paquetes)): ?>
                 <div class="grid grid-cols-2 gap-6">
-                <?php foreach ($paquetes as $p): ?>
-                    <?php $isAgotado = !empty($p['estados']) && in_array('agotado', $p['estados']); ?>
-                    <div class="w-full">
-                        <div class="flex rounded-xl shadow-lg border border-gray-200 bg-white overflow-hidden <?= $isAgotado ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer hover:shadow-xl' ?> transition-shadow"
-                            <?php if (!$isAgotado): ?>
-                            role="button"
-                            tabindex="0"
-                            onclick="openBuyModal(this)"
-                            onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openBuyModal(this); }"
-                            <?php endif; ?>
-                            data-id="<?= $p['id'] ?>"
-                            data-destino="<?= esc($p['destino']) ?>"
-                            data-categoria="<?= esc($p['categoria'] ?? 'Paquete') ?>"
-                            data-hotel="<?= esc($p['hotel'] ?? '') ?>"
-                            data-transporte="<?= esc($p['transporte'] ?? '') ?>"
-                            data-dias="<?= esc($p['dias'] ?? '') ?>"
-                            data-stock="<?= esc($p['stock'] ?? '') ?>"
-                            data-precio="<?= esc($p['precio'] ?? '') ?>"
-                            data-imagen="<?= esc($p['imagen'] ?? '') ?>"
-                            data-imagen-url="<?= !empty($p['imagen']) ? base_url($p['imagen']) : '' ?>">
-                            <div class="w-64 flex-shrink-0 bg-gray-100">
-                                <?php if (!empty($p['imagen'])): ?>
-                                    <img src="<?= base_url($p['imagen']) ?>" alt="<?= esc($p['destino']) ?>" class="block w-full h-full object-cover" />
-                                <?php else: ?>
-                                    <img src="https://via.placeholder.com/400x300?text=Sin+imagen" alt="Sin foto" class="block w-full h-full object-cover" />
+                    <?php foreach ($paquetes as $p): ?>
+                        <?php $isAgotado = !empty($p['estados']) && in_array('agotado', $p['estados']); ?>
+                        <div class="w-full">
+                            <div class="flex rounded-xl shadow-lg border border-gray-200 bg-white overflow-hidden <?= $isAgotado ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer hover:shadow-xl' ?> transition-shadow"
+                                <?php if (!$isAgotado): ?>
+                                role="button"
+                                tabindex="0"
+                                onclick="openBuyModal(this)"
+                                onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openBuyModal(this); }"
                                 <?php endif; ?>
-                            </div>
-
-                            <div class="flex-1 p-4 min-w-0 flex flex-col">
-                                <div class="mb-2 flex-shrink-0 flex flex-wrap gap-1">
-                                    <span class="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
-                                        <?= esc($p['categoria'] ?? 'Paquete') ?>
-                                    </span>
-
-                                    <!-- Mensajes de estado -->
-                                    <?php if (!empty($p['estados'])): ?>
-                                        <?php foreach ($p['estados'] as $estado): ?>
-                                            <?php
-                                            $clases = [
-                                                'agotado' => 'bg-red-100 text-red-800',
-                                                'pocas_plazas' => 'bg-yellow-100 text-yellow-800',
-                                                'cliente_frecuente' => 'bg-purple-100 text-purple-800',
-                                                'destino_preferido' => 'bg-green-100 text-green-800'
-                                            ];
-                                            $textos = [
-                                                'agotado' => 'Agotado',
-                                                'pocas_plazas' => 'Pocas plazas',
-                                                'cliente_frecuente' => 'Cliente frecuente',
-                                                'destino_preferido' => 'Destino preferido'
-                                            ];
-                                            ?>
-                                            <span class="inline-block px-2 py-1 text-xs rounded-full <?= $clases[$estado] ?? 'bg-gray-100 text-gray-800' ?>">
-                                                <?= $textos[$estado] ?? ucfirst($estado) ?>
-                                            </span>
-                                        <?php endforeach; ?>
+                                data-id="<?= $p['id'] ?>"
+                                data-destino="<?= esc($p['destino']) ?>"
+                                data-categoria="<?= esc($p['categoria'] ?? 'Paquete') ?>"
+                                data-hotel="<?= esc($p['hotel'] ?? '') ?>"
+                                data-transporte="<?= esc($p['transporte'] ?? '') ?>"
+                                data-dias="<?= esc($p['dias'] ?? '') ?>"
+                                data-stock="<?= esc($p['stock'] ?? '') ?>"
+                                data-precio="<?= esc($p['precio'] ?? '') ?>"
+                                data-imagen="<?= esc($p['imagen'] ?? '') ?>"
+                                data-imagen-url="<?= !empty($p['imagen']) ? base_url($p['imagen']) : '' ?>">
+                                <div class="w-64 flex-shrink-0 bg-gray-100">
+                                    <?php if (!empty($p['imagen'])): ?>
+                                        <img src="<?= base_url($p['imagen']) ?>" alt="<?= esc($p['destino']) ?>" class="block w-full h-full object-cover" />
+                                    <?php else: ?>
+                                        <img src="https://via.placeholder.com/400x300?text=Sin+imagen" alt="Sin foto" class="block w-full h-full object-cover" />
                                     <?php endif; ?>
                                 </div>
 
-                                <h3 class="text-xl font-bold text-gray-800 mb-2 block truncate w-full flex-shrink-0">
-                                    <?= esc($p['destino'] ?? '') ?>
-                                </h3>
+                                <div class="flex-1 p-4 min-w-0 flex flex-col">
+                                    <div class="mb-2 flex-shrink-0 flex flex-wrap gap-1">
+                                        <span class="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
+                                            <?= esc($p['categoria'] ?? 'Paquete') ?>
+                                        </span>
 
-                                <div class="text-sm text-gray-600 mb-3 flex-shrink-0">
-                                    <div class="mb-1">
-                                        <span class="font-medium"><?= esc($p['dias']) ?> días, <?= esc($p['dias'] - 1) ?> noches</span>
+                                        <!-- Mensajes de estado -->
+                                        <?php if (!empty($p['estados'])): ?>
+                                            <?php foreach ($p['estados'] as $estado): ?>
+                                                <?php
+                                                $clases = [
+                                                    'agotado' => 'bg-red-100 text-red-800',
+                                                    'pocas_plazas' => 'bg-yellow-100 text-yellow-800',
+                                                    'cliente_frecuente' => 'bg-purple-100 text-purple-800',
+                                                    'destino_preferido' => 'bg-green-100 text-green-800'
+                                                ];
+                                                $textos = [
+                                                    'agotado' => 'Agotado',
+                                                    'pocas_plazas' => 'Pocas plazas',
+                                                    'cliente_frecuente' => 'Cliente frecuente',
+                                                    'destino_preferido' => 'Destino preferido'
+                                                ];
+                                                ?>
+                                                <span class="inline-block px-2 py-1 text-xs rounded-full <?= $clases[$estado] ?? 'bg-gray-100 text-gray-800' ?>">
+                                                    <?= $textos[$estado] ?? ucfirst($estado) ?>
+                                                </span>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
                                     </div>
-                                    <div class="truncate w-full">
-                                        <?= esc($p['transporte'] ?? '') ?> • <?= esc($p['hotel'] ?? '') ?>
-                                    </div>
-                                </div>
 
-                                <div class="mt-auto min-h-0">
-                                    <p class="text-2xl font-bold text-gray-800">
-                                        <?= isset($p['precio']) ? '$' . esc($p['precio']) : '$110' ?>
-                                        <span class="text-base font-normal text-gray-600">/por persona</span>
-                                    </p>
+                                    <h3 class="text-xl font-bold text-gray-800 mb-2 block truncate w-full flex-shrink-0">
+                                        <?= esc($p['destino'] ?? '') ?>
+                                    </h3>
+
+                                    <div class="text-sm text-gray-600 mb-3 flex-shrink-0">
+                                        <div class="mb-1">
+                                            <span class="font-medium"><?= esc($p['dias']) ?> días, <?= esc($p['dias'] - 1) ?> noches</span>
+                                        </div>
+                                        <div class="truncate w-full">
+                                            <?= esc($p['transporte'] ?? '') ?> • <?= esc($p['hotel'] ?? '') ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-auto min-h-0">
+                                        <p class="text-2xl font-bold text-gray-800">
+                                            <?= isset($p['precio']) ? '$' . esc($p['precio']) : '$110' ?>
+                                            <span class="text-base font-normal text-gray-600">/por persona</span>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
                 </div>
             <?php else: ?>
                 <p class="text-center py-8 text-gray-600">No hay paquetes disponibles.</p>
@@ -168,12 +174,8 @@
     </section>
     <?= view('partials/_footer') ?>
 
-    <!-- Embla Carousel JS -->
-    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
-    <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"></script>
-    
-    <!-- Embla Carousel Initialization -->
-    <script src="<?= base_url('js/embla-carousel-init.js') ?>"></script>
+    <!-- Flowbite JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
 
     <?= view('partials/paquetes/_detail_scripts') ?>
 </body>
