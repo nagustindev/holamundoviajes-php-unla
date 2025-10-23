@@ -4,9 +4,17 @@
             <img src="<?= base_url('uploads/logo.svg') ?>" alt="Logo" class="h-10">
             <p class="font-fredoka font-bold text-2xl text-white">HolaMundo Viajes</p>
         </a>
-        <div class="flex items-center space-x-6 rtl:space-x-reverse">
-            <a href="tel:5541251234" class="text-sm  text-gray-500 dark:text-white hover:underline">(555) 412-1234</a>
-            <div class="flex gap-2 items-center text-white">
+        <div class="flex items-center space-x-6 rtl:space-x-reverse text-white">
+            <span class="text-sm uppercase ">Ventas</span>
+            <a href="#" class="text-sm hover:underline gap-2">
+                <i class="fa-solid fa-phone"></i>
+                <span>0810.220.1031</span>
+            </a>
+            <a href="#" class="text-sm hover:underline gap-2">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>+54 911 5832.0805</span>
+            </a>
+            <div class="flex gap-2 items-center">
                 <ul>
                     <li>
                         <?php if (session()->get('user_id')): ?>
