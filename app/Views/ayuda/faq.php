@@ -22,7 +22,7 @@
             <img src="<?= base_url('uploads/pexels-flickr-155246.jpg') ?>" alt="Playa de Florianopolis" class="w-full h-64 object-cover mb-6">
             <div class="flex flex-col absolute inset-0 items-center justify-center text-white bg-black bg-opacity-15">
                 <span class="uppercase text-sm">Servicio al cliente</span>
-                <h1 class="font-fredoka font-bold text-4xl">Embarcate en una aventura inolvidable</h1>
+                <h1 class="font-fredoka font-bold text-4xl">Preguntas Frecuentes</h1>
             </div>
             <ol class="absolute top-3 left-3 space-x-2 flex font-medium text-center text-white">
                 <li class="flex items-center gap-2">

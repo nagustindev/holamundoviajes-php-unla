@@ -16,7 +16,7 @@
 
 <body>
     <?= view('partials/_nav') ?>
-    <section class="bg-gray-100 min-h-screen">
+    <section class="bg-gray-100 pb-8">
         <div class="relative text-center">
             <img src="<?= base_url('uploads/pexels-maximiliano-pezzali-1095126733-26988244.jpg') ?>" alt="Perito moreno" class="w-full h-64 object-cover mb-6">
             <div class="flex flex-col absolute inset-0 items-center justify-center text-white bg-black bg-opacity-15">
@@ -41,9 +41,9 @@
                 </div>
                 <div class="flex flex-col justify-center p-6">
                     <h2 class="text-4xl font-bold mb-4 text-gray-800">Un mundo de <span class="text-accent">inspiración</span></h2>
-                    <p class="mb-6 text-gray-600 leading-relaxed">HolaMundo Viajes es una agencia de viajes dedicada a ofrecer experiencias inolvidables a nuestros clientes. Fundada en 2025, nuestra misión es conectar a las personas con destinos increíbles alrededor del mundo, brindando un servicio personalizado y de alta calidad.</p>
+                    <p class="mb-6 leading-relaxed text-gray-700">HolaMundo Viajes es una agencia de viajes dedicada a ofrecer experiencias inolvidables a nuestros clientes. Fundada en 2025, nuestra misión es conectar a las personas con destinos increíbles alrededor del mundo, brindando un servicio personalizado y de alta calidad.</p>
                     <button
-                        class="bg-primary text-center w-56 rounded-2xl h-14 relative text-black text-xl font-semibold group"
+                        class="bg-primary text-center w-56 rounded-2xl h-14 relative text-xl font-semibold group"
                         type="button"
                         onclick="window.location.href='<?= base_url('/') ?>'">
                         <div
@@ -54,19 +54,36 @@
                     </button>
                 </div>
             </div>
-            <h2 class="text-2xl font-semibold mb-3">Nuestra Misión</h2>
-            <p class="mb-4">Nuestra misión es hacer que cada viaje sea una experiencia única y memorable. Nos esforzamos por entender las necesidades y deseos de nuestros clientes para ofrecerles opciones de viaje que se adapten perfectamente a sus expectativas.</p>
-            <h2 class="text-2xl font-semibold mb-3">Nuestros Valores</h2>
-            <ul class="list-disc list-inside mb-4">
-                <li>Compromiso con la calidad y la satisfacción del cliente.</li>
-                <li>Transparencia y honestidad en todas nuestras operaciones.</li>
-                <li>Pasión por los viajes y la exploración de nuevas culturas.</li>
-                <li>Responsabilidad social y ambiental en nuestras prácticas comerciales.</li>
-            </ul>
-            <h2 class="text-2xl font-semibold mb-3">Nuestro Equipo</h2>
-            <p class="mb-4">Contamos con un equipo de profesionales apasionados por los viajes, con amplia experiencia en la industria turística. Nuestro equipo está dedicado a brindar asesoramiento experto y apoyo en cada etapa del proceso de planificación del viaje.</p>
-            <h2 class="text-2xl font-semibold mb-3">Contáctanos</h2>
-            <p class="mb-4">Si deseas obtener más información sobre nuestros servicios o tienes alguna pregunta, no dudes en ponerte en contacto con nosotros a través de nuestro <a href="<?= base_url('contacto') ?>" class="text-blue-600 hover:underline">formulario de contacto</a> o llamándonos al +54 9 11 1234-5678.</p>
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">Valoramos a nuestros clientes</h1>
+            <div class="grid grid-cols-3 gap-6">
+                <div class="flex gap-4 items-center">
+                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-primary flex-shrink-0">
+                        <i class="fa-solid fa-dollar-sign text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Ofrecemos el mejor precio</h3>
+                        <p class="text-gray-700">Nos aseguramos de que nuestros precios sean competitivos y justos, sin comprometer la calidad de nuestros servicios.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-center">
+                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-primary flex-shrink-0">
+                        <i class="fa-solid fa-credit-card text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Comprá sin preocupaciones</h3>
+                        <p class="text-gray-700">Contamos con múltiples opciones de pago seguras y confiables para que puedas reservar tu viaje con total tranquilidad.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-center">
+                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-primary flex-shrink-0">
+                        <i class="fa-solid fa-person-hiking text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Elegí el paquete que más te guste</h3>
+                        <p class="text-gray-700">Contamos con una variedad de paquetes para que puedas encontrar la opción perfecta para tus necesidades.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <?= view('partials/_footer') ?>
