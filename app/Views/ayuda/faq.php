@@ -80,6 +80,62 @@
                         </div>
                     </div>
                 </div>
+                <!-- Cuarto accordion item -->
+                <div class="bg-white rounded-xl mb-2">
+                    <h2 id="accordion-flush-heading-4">
+                        <button type="button" class="flex items-center justify-between w-full py-5 px-5 font-bold" data-accordion-target="#accordion-flush-body-4" aria-expanded="false" aria-controls="accordion-flush-body-4">
+                            <span class="text-xl">¿Qué formas de pago aceptan?</span>
+                            <i class="fa-solid fa-chevron-up shrink-0" data-accordion-icon aria-hidden="true"></i>
+                        </button>
+                    </h2>
+                    <div id="accordion-flush-body-4" class="hidden" aria-labelledby="accordion-flush-heading-4">
+                        <div class="py-4 px-5">
+                            <p class="text-lg">Buscamos ofrecer diversas opciones de pago para su comodidad:</p>
+                            <ul>
+                                <li>
+                                    • Tarjetas de débito.
+                                </li>
+                                <li>
+                                    • Tarjetas de crédito.
+                                </li>
+                                <li>
+                                    • Billeteras Virtuales (Mercado Pago, Cuenta DNI, etc).
+                                </li>
+                                <li>
+                                    • Pago en destino.
+                                </li>
+                                <li>
+                                    • Pago Fácil o RapiPago.
+                                </li>
+                                <li>
+                                    • Transferencia bancaria.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                  <!-- Quinto accordion item -->
+                <div class="bg-white rounded-xl mb-2">
+                    <h2 id="accordion-flush-heading-5">
+                        <button type="button" class="flex items-center justify-between w-full py-5 px-5 font-bold" data-accordion-target="#accordion-flush-body-5" aria-expanded="false" aria-controls="accordion-flush-body-5">
+                            <span class="text-xl">¿Qué puedo llevar en mi equipaje de mano?</span>
+                            <i class="fa-solid fa-chevron-up shrink-0" data-accordion-icon aria-hidden="true"></i>
+                        </button>
+                    </h2>
+                    <div id="accordion-flush-body-5" class="hidden" aria-labelledby="accordion-flush-heading-5">
+                        <div class="py-4 px-5">
+                            <p class="text-lg mb-2">Las reglas pueden variar según la aerolínea y el país de destino, pero generalmente los objetos permitidos y no permitidos son:</p>
+                            <ul>
+                                <li>
+                                    <span class="font-bold">• Objetos permitidos:</span>
+                                     Documentos de viaje, dispositivos electrónicos (como laptops y teléfonos móviles), artículos de tocador en envases de hasta 100 ml, medicamentos necesarios, ropa adicional. (Siempre verifica las recomendaciones de la aerolínea y del destino)
+                                </li>
+                                <li>
+                                    <span class="font-bold">• Objetos no permitidos:</span> Líquidos en envases mayores a 100 ml, objetos punzocortantes (como cuchillos y tijeras), armas de fuego, explosivos, sustancias inflamables, productos químicos peligrosos.
+                                </li>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
