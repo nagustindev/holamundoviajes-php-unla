@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="<?= base_url('favicon.ico') ?>" type="image/x-icon">
     <link rel="stylesheet" href="<?= base_url() ?>css/styles.css">
     <script src="https://kit.fontawesome.com/a793e0e3dc.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.css" rel="stylesheet" />
     <title>Panel Admin - HolaMundo Viajes</title>
 </head>
 
@@ -146,6 +147,8 @@
     <?= view('partials/paquetes/_forms_scripts') ?>
 
     <?= view('partials/_footer') ?>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
 </body>
 
 </html>

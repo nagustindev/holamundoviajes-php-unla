@@ -19,4 +19,9 @@ class Usuarios extends BaseController
         $data['usuarios'] = $this->usuariosModel->getUsuarios(); // Obtiene todos los usuarios
         return view('usuarios/listar', $data); // Carga la vista con los datos
     }
+
+    public function mis_viajes()
+    {
+        return view('usuarios/mis_viajes');
+    }
 }

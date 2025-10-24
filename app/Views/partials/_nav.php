@@ -14,31 +14,47 @@
                 <i class="fa-brands fa-whatsapp"></i>
                 <span>+54 911 5832.0805</span>
             </a>
-            <div class="flex gap-2 items-center">
-                <ul>
-                    <li>
-                        <?php if (session()->get('user_id')): ?>
-                            <a href="<?= base_url('auth/logout') ?>" class="flex items-center gap-2">
-                                <i class="fa-solid fa-sign-out-alt"></i>
-                                <p>Cerrar Sesión</p>
-                            </a>
-                        <?php else: ?>
-                            <a href="<?= base_url('auth/login') ?>" class="flex items-center gap-2">
-                                <i class="fa-solid fa-circle-user"></i>
-                                <p>Iniciar Sesión</p>
-                            </a>
-                        <?php endif; ?>
-                    </li>
-                    <?php if (session()->get('tipo_usuario') === 'admin'): ?>
+
+            <?php if (session()->get('user_id')): ?>
+                <!-- Usuario logueado -->
+                <i class="fa-solid fa-user cursor-pointer" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start"></i>
+                
+                <!-- Dropdown menu -->
+                <div id="userDropdown" class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44">
+                    <div class="px-4 py-3 text-sm text-gray-900">
+                        <div class="font-medium">¡Hola!</div>
+                        <div class="text-gray-500 truncate"><?= session()->get('email') ?? 'usuario@email.com' ?></div>
+                    </div>
+                    <ul class="py-2 text-sm text-gray-700">
                         <li>
-                            <a href="<?= base_url('auth/admin') ?>" class="flex items-center gap-2">
-                                <i class="fa-solid fa-user-shield"></i>
-                                <p>Panel de Admin</p>
+                            <a href="<?= base_url('usuarios/mis_viajes') ?>" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100">
+                                <i class="fa-solid fa-suitcase"></i>
+                                Mis viajes
                             </a>
                         </li>
-                    <?php endif; ?>
-                </ul>
-            </div>
+                        <?php if (session()->get('tipo_usuario') === 'admin'): ?>
+                            <li>
+                                <a href="<?= base_url('auth/admin') ?>" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100">
+                                    <i class="fa-solid fa-user-shield"></i>
+                                    Panel de Admin
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+                    <div class="py-1">
+                        <a href="<?= base_url('auth/logout') ?>" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <i class="fa-solid fa-sign-out-alt"></i>
+                            Cerrar Sesión
+                        </a>
+                    </div>
+                </div>
+            <?php else: ?>
+                <!-- Usuario no logueado -->
+                <a href="<?= base_url('auth/login') ?>" class="flex items-center gap-2 hover:bg-white/10 px-3 py-2 rounded-lg transition-colors">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Iniciar Sesión</span>
+                </a>
+            <?php endif; ?>
         </div>
     </div>
 </nav>
