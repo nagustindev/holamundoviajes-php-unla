@@ -27,4 +27,14 @@ class VentasModel extends Model
         // Indicamos el campo de la tabla 'ventas' que queremos buscar
         return $this->where('id', $id)->first();
     }
+
+    // Función que retorna todos los viajes (ventas) de un usuario específico
+    public function getViajesUsuario($userId)
+    {
+        return $this->select('ventas.*, paquetes.destino, paquetes.hotel, paquetes.transporte, paquetes.precio, paquetes.imagen, paquetes.dias as duracion, ventas.fecha_venta as fecha_compra, ventas.cantidad')
+                    ->join('paquetes', 'paquetes.id = ventas.id_paquete', 'left')
+                    ->where('ventas.id_usuario', $userId)
+                    ->orderBy('ventas.fecha_venta', 'DESC')
+                    ->findAll();
+    }
 }

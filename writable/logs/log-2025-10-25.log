@@ -1,0 +1,480 @@
+DEBUG - 2025-10-25 02:39:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:39:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:40:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:40:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:40:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:43:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-10-25 02:43:07 --> mysqli_sql_exception: Unknown column 'p.nombre' in 'field list' in C:\xampp\htdocs\holamundo_tp\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\holamundo_tp\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `v`.*, `...', 0)
+#1 C:\xampp\htdocs\holamundo_tp\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `v`.*, `...')
+#2 C:\xampp\htdocs\holamundo_tp\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `v`.*, `...')
+#3 C:\xampp\htdocs\holamundo_tp\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `v`.*, `...', Array, false)
+#4 C:\xampp\htdocs\holamundo_tp\app\Models\UsuariosModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\holamundo_tp\app\Controllers\Usuarios.php(29): App\Models\UsuariosModel->getViajesUsuario('6')
+#6 C:\xampp\htdocs\holamundo_tp\system\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+#7 C:\xampp\htdocs\holamundo_tp\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+#8 C:\xampp\htdocs\holamundo_tp\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\holamundo_tp\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\holamundo_tp\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\holamundo_tp\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-10-25 02:43:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.nombre' in 'field list'
+[Method: GET, Route: usuarios/mis_viajes]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = :v.usuario_id:
+ORDER BY `v`.`fecha_compra` DESC', [...], false)
+ 2 APPPATH\Models\UsuariosModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Usuarios.php(29): App\Models\UsuariosModel->getViajesUsuario('6')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-25 02:43:07 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = :v.usuario_id:
+ORDER BY `v`.`fecha_compra` DESC', [...], false)
+ 4 APPPATH\Models\UsuariosModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Usuarios.php(29): App\Models\UsuariosModel->getViajesUsuario('6')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-25 02:43:07 --> [Caused by] mysqli_sql_exception: Unknown column 'p.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = :v.usuario_id:
+ORDER BY `v`.`fecha_compra` DESC', [...], false)
+ 5 APPPATH\Models\UsuariosModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Usuarios.php(29): App\Models\UsuariosModel->getViajesUsuario('6')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-25 02:43:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-10-25 02:43:14 --> mysqli_sql_exception: Unknown column 'p.nombre' in 'field list' in C:\xampp\htdocs\holamundo_tp\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\holamundo_tp\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `v`.*, `...', 0)
+#1 C:\xampp\htdocs\holamundo_tp\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `v`.*, `...')
+#2 C:\xampp\htdocs\holamundo_tp\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `v`.*, `...')
+#3 C:\xampp\htdocs\holamundo_tp\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `v`.*, `...', Array, false)
+#4 C:\xampp\htdocs\holamundo_tp\app\Models\UsuariosModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\holamundo_tp\app\Controllers\Usuarios.php(29): App\Models\UsuariosModel->getViajesUsuario('6')
+#6 C:\xampp\htdocs\holamundo_tp\system\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+#7 C:\xampp\htdocs\holamundo_tp\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+#8 C:\xampp\htdocs\holamundo_tp\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\holamundo_tp\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\holamundo_tp\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\holamundo_tp\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-10-25 02:43:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.nombre' in 'field list'
+[Method: GET, Route: usuarios/mis_viajes]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = :v.usuario_id:
+ORDER BY `v`.`fecha_compra` DESC', [...], false)
+ 2 APPPATH\Models\UsuariosModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Usuarios.php(29): App\Models\UsuariosModel->getViajesUsuario('6')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-25 02:43:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = :v.usuario_id:
+ORDER BY `v`.`fecha_compra` DESC', [...], false)
+ 4 APPPATH\Models\UsuariosModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Usuarios.php(29): App\Models\UsuariosModel->getViajesUsuario('6')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-25 02:43:14 --> [Caused by] mysqli_sql_exception: Unknown column 'p.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = :v.usuario_id:
+ORDER BY `v`.`fecha_compra` DESC', [...], false)
+ 5 APPPATH\Models\UsuariosModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Usuarios.php(29): App\Models\UsuariosModel->getViajesUsuario('6')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-25 02:44:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-10-25 02:44:32 --> mysqli_sql_exception: Unknown column 'p.nombre' in 'field list' in C:\xampp\htdocs\holamundo_tp\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\holamundo_tp\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `v`.*, `...', 0)
+#1 C:\xampp\htdocs\holamundo_tp\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `v`.*, `...')
+#2 C:\xampp\htdocs\holamundo_tp\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `v`.*, `...')
+#3 C:\xampp\htdocs\holamundo_tp\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `v`.*, `...', Array, false)
+#4 C:\xampp\htdocs\holamundo_tp\app\Models\UsuariosModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\holamundo_tp\app\Controllers\Usuarios.php(29): App\Models\UsuariosModel->getViajesUsuario('6')
+#6 C:\xampp\htdocs\holamundo_tp\system\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+#7 C:\xampp\htdocs\holamundo_tp\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+#8 C:\xampp\htdocs\holamundo_tp\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\holamundo_tp\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\holamundo_tp\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\holamundo_tp\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-10-25 02:44:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.nombre' in 'field list'
+[Method: GET, Route: usuarios/mis_viajes]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = :v.usuario_id:
+ORDER BY `v`.`fecha_compra` DESC', [...], false)
+ 2 APPPATH\Models\UsuariosModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Usuarios.php(29): App\Models\UsuariosModel->getViajesUsuario('6')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-25 02:44:32 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = :v.usuario_id:
+ORDER BY `v`.`fecha_compra` DESC', [...], false)
+ 4 APPPATH\Models\UsuariosModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Usuarios.php(29): App\Models\UsuariosModel->getViajesUsuario('6')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-25 02:44:32 --> [Caused by] mysqli_sql_exception: Unknown column 'p.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = :v.usuario_id:
+ORDER BY `v`.`fecha_compra` DESC', [...], false)
+ 5 APPPATH\Models\UsuariosModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Usuarios.php(29): App\Models\UsuariosModel->getViajesUsuario('6')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-25 02:44:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-10-25 02:44:51 --> mysqli_sql_exception: Unknown column 'p.nombre' in 'field list' in C:\xampp\htdocs\holamundo_tp\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\holamundo_tp\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `v`.*, `...', 0)
+#1 C:\xampp\htdocs\holamundo_tp\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `v`.*, `...')
+#2 C:\xampp\htdocs\holamundo_tp\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `v`.*, `...')
+#3 C:\xampp\htdocs\holamundo_tp\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `v`.*, `...', Array, false)
+#4 C:\xampp\htdocs\holamundo_tp\app\Models\UsuariosModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\holamundo_tp\app\Controllers\Usuarios.php(33): App\Models\UsuariosModel->getViajesUsuario('6')
+#6 C:\xampp\htdocs\holamundo_tp\system\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+#7 C:\xampp\htdocs\holamundo_tp\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+#8 C:\xampp\htdocs\holamundo_tp\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\holamundo_tp\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\holamundo_tp\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\holamundo_tp\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-10-25 02:44:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.nombre' in 'field list'
+[Method: GET, Route: usuarios/mis_viajes]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = :v.usuario_id:
+ORDER BY `v`.`fecha_compra` DESC', [...], false)
+ 2 APPPATH\Models\UsuariosModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Usuarios.php(33): App\Models\UsuariosModel->getViajesUsuario('6')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-25 02:44:51 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'p.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = :v.usuario_id:
+ORDER BY `v`.`fecha_compra` DESC', [...], false)
+ 4 APPPATH\Models\UsuariosModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Usuarios.php(33): App\Models\UsuariosModel->getViajesUsuario('6')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-10-25 02:44:51 --> [Caused by] mysqli_sql_exception: Unknown column 'p.nombre' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = \'6\'
+ORDER BY `v`.`fecha_compra` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `v`.*, `p`.`nombre` as `paquete_nombre`, `p`.`destino`, `p`.`precio`, `p`.`imagen`, `p`.`duracion`, `v`.`fecha_compra`, `v`.`cantidad_personas`
+FROM `ventas` `v`
+JOIN `paquetes` `p` ON `v`.`paquete_id` = `p`.`id`
+WHERE `v`.`usuario_id` = :v.usuario_id:
+ORDER BY `v`.`fecha_compra` DESC', [...], false)
+ 5 APPPATH\Models\UsuariosModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Usuarios.php(33): App\Models\UsuariosModel->getViajesUsuario('6')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-25 02:45:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:46:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:46:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:47:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:50:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-25 02:50:46 --> ErrorException: Undefined array key "hotel"
+[Method: GET, Route: usuarios/mis_viajes]
+in APPPATH\Views\usuarios\mis_viajes.php on line 65.
+ 1 APPPATH\Views\usuarios\mis_viajes.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "hotel"', 'C:\\xampp\\htdocs\\holamundo_tp\\app\\Views\\usuarios\\mis_viajes.php', 65)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\holamundo_tp\\app\\Views\\usuarios\\mis_viajes.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('usuarios/mis_viajes', [], true)
+ 5 APPPATH\Controllers\Usuarios.php(35): view('usuarios/mis_viajes', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-25 02:50:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-25 02:50:51 --> ErrorException: Undefined array key "hotel"
+[Method: GET, Route: usuarios/mis_viajes]
+in APPPATH\Views\usuarios\mis_viajes.php on line 65.
+ 1 APPPATH\Views\usuarios\mis_viajes.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "hotel"', 'C:\\xampp\\htdocs\\holamundo_tp\\app\\Views\\usuarios\\mis_viajes.php', 65)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\holamundo_tp\\app\\Views\\usuarios\\mis_viajes.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('usuarios/mis_viajes', [], true)
+ 5 APPPATH\Controllers\Usuarios.php(35): view('usuarios/mis_viajes', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-25 02:51:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-25 02:51:12 --> ErrorException: Undefined array key "hotel"
+[Method: GET, Route: usuarios/mis_viajes]
+in APPPATH\Views\usuarios\mis_viajes.php on line 65.
+ 1 APPPATH\Views\usuarios\mis_viajes.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "hotel"', 'C:\\xampp\\htdocs\\holamundo_tp\\app\\Views\\usuarios\\mis_viajes.php', 65)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\holamundo_tp\\app\\Views\\usuarios\\mis_viajes.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('usuarios/mis_viajes', [], true)
+ 5 APPPATH\Controllers\Usuarios.php(35): view('usuarios/mis_viajes', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-25 02:51:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-25 02:51:29 --> ErrorException: Undefined array key "paquete_nombre"
+[Method: GET, Route: usuarios/mis_viajes]
+in APPPATH\Views\usuarios\mis_viajes.php on line 50.
+ 1 APPPATH\Views\usuarios\mis_viajes.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "paquete_nombre"', 'C:\\xampp\\htdocs\\holamundo_tp\\app\\Views\\usuarios\\mis_viajes.php', 50)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\holamundo_tp\\app\\Views\\usuarios\\mis_viajes.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('usuarios/mis_viajes', [], true)
+ 5 APPPATH\Controllers\Usuarios.php(35): view('usuarios/mis_viajes', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-25 02:51:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-25 02:51:37 --> ErrorException: Undefined array key "paquete_nombre"
+[Method: GET, Route: usuarios/mis_viajes]
+in APPPATH\Views\usuarios\mis_viajes.php on line 50.
+ 1 APPPATH\Views\usuarios\mis_viajes.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "paquete_nombre"', 'C:\\xampp\\htdocs\\holamundo_tp\\app\\Views\\usuarios\\mis_viajes.php', 50)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\holamundo_tp\\app\\Views\\usuarios\\mis_viajes.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('usuarios/mis_viajes', [], true)
+ 5 APPPATH\Controllers\Usuarios.php(35): view('usuarios/mis_viajes', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-25 02:51:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-25 02:51:57 --> ErrorException: Undefined array key "paquete_nombre"
+[Method: GET, Route: usuarios/mis_viajes]
+in APPPATH\Views\usuarios\mis_viajes.php on line 50.
+ 1 APPPATH\Views\usuarios\mis_viajes.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "paquete_nombre"', 'C:\\xampp\\htdocs\\holamundo_tp\\app\\Views\\usuarios\\mis_viajes.php', 50)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\holamundo_tp\\app\\Views\\usuarios\\mis_viajes.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('usuarios/mis_viajes', [], true)
+ 5 APPPATH\Controllers\Usuarios.php(35): view('usuarios/mis_viajes', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-25 02:51:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-10-25 02:51:58 --> ErrorException: Undefined array key "paquete_nombre"
+[Method: GET, Route: usuarios/mis_viajes]
+in APPPATH\Views\usuarios\mis_viajes.php on line 50.
+ 1 APPPATH\Views\usuarios\mis_viajes.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "paquete_nombre"', 'C:\\xampp\\htdocs\\holamundo_tp\\app\\Views\\usuarios\\mis_viajes.php', 50)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\holamundo_tp\\app\\Views\\usuarios\\mis_viajes.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('usuarios/mis_viajes', [], true)
+ 5 APPPATH\Controllers\Usuarios.php(35): view('usuarios/mis_viajes', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Usuarios->mis_viajes()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Usuarios))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-10-25 02:52:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:52:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:52:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:52:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:52:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:53:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:54:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:54:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:54:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:54:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:54:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:54:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:54:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:55:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:55:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:55:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:55:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-10-25 02:55:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
