@@ -91,6 +91,23 @@
         });
     })();
 
+    // Función para habilitar/deshabilitar el campo de descuento
+    function toggleDescuentoField(formType) {
+        const checkbox = document.getElementById(formType + '_es_oferta');
+        const descuentoInput = document.getElementById(formType + '_descuento');
+        
+        if (checkbox && descuentoInput) {
+            if (checkbox.checked) {
+                descuentoInput.disabled = false;
+                descuentoInput.classList.remove('bg-gray-100');
+            } else {
+                descuentoInput.disabled = true;
+                descuentoInput.value = '0';
+                descuentoInput.classList.add('bg-gray-100');
+            }
+        }
+    }
+
     // -----------------------------
     // Sección: Modal de EDICIÓN (Editar paquete)
     // -----------------------------
@@ -170,17 +187,25 @@
         const hotel      = btn.dataset.hotel || '';
         const transporte = btn.dataset.transporte || '';
         const dias       = btn.dataset.dias || '';
+        const noches     = btn.dataset.noches || '';
         const stock      = btn.dataset.stock || '';
         const precio     = btn.dataset.precio || '';
         const imagen     = btn.dataset.imagen || '';
+        const descuento  = btn.dataset.descuento || '0';
+        const esOferta   = btn.dataset.esOferta === '1' || btn.dataset.esOferta === 'true';
+        const descripcion = btn.dataset.descripcion || '';
 
         // 2) Volcamos esos datos dentro de los inputs del formulario
         document.getElementById('edit_id').value          = id;
         document.getElementById('edit_destino').value     = destino;
         document.getElementById('edit_hotel').value       = hotel;
         document.getElementById('edit_dias').value        = dias;
+        document.getElementById('edit_noches').value      = noches;
         document.getElementById('edit_stock').value       = stock;
         document.getElementById('edit_precio').value      = precio;
+        document.getElementById('edit_descuento').value   = descuento;
+        document.getElementById('edit_es_oferta').checked = esOferta;
+        document.getElementById('edit_descripcion').value = descripcion;
         
         // 2.1) Mostrar correctamente las opciones seleccionadas en los selects
         const categoriaSelect = document.getElementById('edit_categoria');
@@ -218,7 +243,10 @@
         const editForm = document.getElementById('editForm');
         editForm.action = '<?= site_url('paquetes/update') ?>/' + id; // site_url lo genera PHP
 
-        // 6) Abrir el modal
+        // 6) Configurar el estado del campo de descuento
+        toggleDescuentoField('edit');
+
+        // 7) Abrir el modal
         toggleEditForm();
     }
 

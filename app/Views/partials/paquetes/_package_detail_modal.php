@@ -19,8 +19,12 @@
                         <li><strong>Días/Noches:</strong> <span id="modalDias">-</span> días, <span id="modalNoches">-</span> noches</li>
                         <li><strong>Transporte:</strong> <span id="modalTransporte">-</span></li>
                         <li><strong>Hotel:</strong> <span id="modalHotel">-</span></li>
-                        <li><strong>Stock:</strong> <span id="modalStock">-</span></li>
                     </ul>
+
+                    <div class="mb-4">
+                        <h4 class="text-sm font-semibold text-gray-800 mb-2">Descripción:</h4>
+                        <p id="modalDescripcion" class="text-sm text-gray-600 leading-relaxed">-</p>
+                    </div>
 
                     <p class="text-2xl font-bold text-gray-900 mb-4">
                         <span id="modalPrecio">$-</span>

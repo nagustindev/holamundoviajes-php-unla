@@ -27,25 +27,37 @@
     <section class="max-w-2xl mx-auto">
         <p class="text-lg mb-4">HolaMundo es una empresa de viajes especializada en los mejores y más baratos viajes a cualquier destino. HolaMundo es parte de una gran compañía de viajes con mucha experiencia en ofrecer viajes a América, Europa, Asia y Oceanía. Le ofrecemos una buena relación calidad-precio y un servicio individual. Como especialista en viajes a estos países, por supuesto, ofrecemos mucha personalización, siempre puede contactar con nosotros para obtener más información u ofertas actuales. Además, trabajamos constantemente para ampliar la oferta en nuestro sitio web. </p>
         <div class="grid grid-cols-1 gap-6">
-            <a href="<?= base_url('ayuda/about') ?>">
+            <a href="<?= base_url('ayuda/about') ?>" class="group">
                 <div class="relative rounded-xl shadow-lg border border-gray-200 bg-white overflow-hidden cursor-pointer hover:shadow-xl transition-shadow h-64 mb-3">
                     <img src="<?= base_url('uploads/pexels-alexpham-950210.jpg') ?>" alt="" class="w-full h-full object-cover">
-                    <h2 class="absolute bottom-4 left-4 text-white text-xl font-bold bg-opacity-50 px-3 py-1 rounded">Acerca de nosotros</h2>
+                    <div class="absolute inset-0 bg-black bg-opacity-10 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                    <div class="flex items-center gap-2 absolute bottom-4 left-4 text-white font-bold bg-opacity-30 px-4 py-2 transition-all duration-300 text-xl group-hover:text-2xl whitespace-nowrap">
+                        <h2>Acerca de nosotros</h2>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
                 </div>
             </a>
         </div>
         <div class="mx-auto">
             <div class="grid grid-cols-2 gap-4 mb-4">
-                <a href="<?= base_url('ayuda/faq') ?>">
+                <a href="<?= base_url('ayuda/faq') ?>" class="group">
                     <div class="relative rounded-xl shadow-lg border border-gray-200 bg-white overflow-hidden cursor-pointer hover:shadow-xl transition-shadow h-64">
                         <img src="<?= base_url('uploads/pexels-diego-giron-464799823-31564538.jpg') ?>" alt="Jujuy foto" class="w-full h-full object-cover">
-                        <h2 class="absolute bottom-4 left-4 text-white text-xl font-bold bg-opacity-50 px-3 py-1 rounded">Preguntas Frecuentes</h2>
+                        <div class="absolute inset-0 bg-black bg-opacity-10 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                        <div class="flex items-center gap-2 absolute bottom-4 left-4 text-white font-bold bg-opacity-30 px-4 py-2 transition-all duration-300 text-xl group-hover:text-2xl whitespace-nowrap">
+                            <h2>Preguntas Frecuentes</h2>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
                     </div>
                 </a>
-                <a href="<?= base_url('ayuda/contact') ?>">
+                <a href="<?= base_url('ayuda/contact') ?>" class="group">
                     <div class="relative rounded-xl shadow-lg border border-gray-200 bg-white overflow-hidden cursor-pointer hover:shadow-xl transition-shadow h-64">
                         <img src="<?= base_url('uploads/pexels-urlapovaanna-2957060.jpg') ?>" alt="Londres" class="w-full h-full object-cover">
-                        <h2 class="absolute bottom-4 left-4 text-white text-xl font-bold bg-opacity-50 px-3 py-1 rounded">Contacto</h2>
+                        <div class="absolute inset-0 bg-black bg-opacity-10 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                        <div class="flex items-center gap-2 absolute bottom-4 left-4 text-white font-bold bg-opacity-30 px-4 py-2 transition-all duration-300 text-xl group-hover:text-2xl whitespace-nowrap">
+                            <h2>Contacto</h2>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
                     </div>
                 </a>
             </div>

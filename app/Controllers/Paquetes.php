@@ -21,25 +21,35 @@ class Paquetes extends BaseController
         $hotel = $this->request->getPost('hotel');
         $transporte = $this->request->getPost('transporte');
         $dias = $this->request->getPost('dias');
+        $noches = $this->request->getPost('noches');
         $stock = $this->request->getPost('stock');
         $precio = $this->request->getPost('precio');
+        $descuento = $this->request->getPost('descuento') ?? 0;
+        $es_oferta = $this->request->getPost('es_oferta') ? true : false;
+        $descripcion = $this->request->getPost('descripcion') ?? '';
         $imagen = $this->request->getFile('imagen');
         $rutaImagen = null;
         $categoria = $this->request->getPost('categoria');
+        
         if ($imagen && $imagen->isValid() && !$imagen->hasMoved()) {
             $nombreArchivo = $imagen->getRandomName();
             $imagen->move(ROOTPATH . 'public/uploads', $nombreArchivo);
             $rutaImagen = 'uploads/' . $nombreArchivo;
         }
+        
         $this->paquetesModel->save([
             'destino' => $destino,
             'hotel' => $hotel,
             'transporte' => $transporte,
             'dias' => $dias,
+            'noches' => $noches,
             'stock' => $stock,
             'imagen' => $rutaImagen,
             'categoria' => $categoria,
-            'precio' => $precio
+            'precio' => $precio,
+            'descuento' => $descuento,
+            'es_oferta' => $es_oferta,
+            'descripcion' => $descripcion
         ]);
         return redirect()->to('auth/admin');
     }
@@ -51,18 +61,24 @@ class Paquetes extends BaseController
         $nuevoHotel = $this->request->getPost('hotel');
         $nuevoTransporte = $this->request->getPost('transporte');
         $nuevosDias = $this->request->getPost('dias');
+        $nuevoNoches = $this->request->getPost('noches');
         $nuevoStock = $this->request->getPost('stock');
         $nuevoImagen = $this->request->getFile('imagen');
         $nuevoPrecio = $this->request->getPost('precio');
+        $nuevoDescuento = $this->request->getPost('descuento') ?? 0;
+        $nuevoEsOferta = $this->request->getPost('es_oferta') ? true : false;
+        $nuevoDescripcion = $this->request->getPost('descripcion') ?? '';
         $rutaImagen = null;
         $categoria = $this->request->getPost('categoria');
+        
         if ($nuevoImagen && $nuevoImagen->isValid() && !$nuevoImagen->hasMoved()) {
             $nombreArchivo = $nuevoImagen->getRandomName();
             $nuevoImagen->move(ROOTPATH . 'public/uploads', $nombreArchivo);
             $rutaImagen = 'uploads/' . $nombreArchivo;
         }
-        // Siempre pasar 9 argumentos, aunque la imagen sea null
-        $this->paquetesModel->updatePaquete($id, $nuevoDestino, $nuevoHotel, $nuevoTransporte, $nuevosDias, $nuevoStock, $rutaImagen, $categoria, $nuevoPrecio);
+        
+        // Actualizar con los nuevos campos
+        $this->paquetesModel->updatePaquete($id, $nuevoDestino, $nuevoHotel, $nuevoTransporte, $nuevosDias, $nuevoNoches, $nuevoStock, $rutaImagen, $categoria, $nuevoPrecio, $nuevoDescuento, $nuevoEsOferta, $nuevoDescripcion);
         return redirect()->to('auth/admin');
     }
     // Elimina un paquete existente.

@@ -17,8 +17,13 @@
 
             <?php if (session()->get('user_id')): ?>
                 <!-- Usuario logueado -->
-                <i class="fa-solid fa-user cursor-pointer" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start"></i>
-                
+
+                <button class="flex items-center gap-2 hover:bg-white/10 px-3 py-2 rounded-lg transition-colors" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start">
+                    <i class="fa-solid fa-user cursor-pointer" type="button" ></i>
+                    <span>Perfil</span>
+                </button>
+
+
                 <!-- Dropdown menu -->
                 <div id="userDropdown" class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44">
                     <div class="px-4 py-3 text-sm text-gray-900">

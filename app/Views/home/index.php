@@ -25,25 +25,56 @@
         <!-- Carousel wrapper -->
         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
             <!-- Item 1 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="<?= base_url('/uploads/1760054039_ebed9a812928007cbc27.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            <div class="duration-300 ease-in-out" data-carousel-item="active">
+                <img src="<?= base_url('/uploads/pexels-dreamlensproduction-2450296.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="HolaMundo Viajes">
+                <div class="flex flex-col absolute inset-0 items-center justify-center text-white bg-black bg-opacity-25">
+                    <div class="text-center px-4 py-8 rounded-2xl bg-black bg-opacity-40 backdrop-blur-sm border border-white border-opacity-10">
+                        <h1 class="font-fredoka font-bold text-5xl md:text-6xl mb-4 text-white drop-shadow-2xl leading-tight">
+                            <span class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">HolaMundo</span>
+                            <span class="text-accent drop-shadow-lg">Viajes</span>
+                        </h1>
+                        <span class="uppercase text-lg md:text-xl font-semibold tracking-wider text-white drop-shadow-lg opacity-90">
+                            Descubrí el mundo con nosotros
+                        </span>
+                    </div>
+                </div>
             </div>
             <!-- Item 2 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="<?= base_url('/uploads/1760054039_ebed9a812928007cbc27.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            <div class="hidden duration-300 ease-in-out" data-carousel-item>
+                <img src="<?= base_url('/uploads/pexels-john-tekeridis-21837-28505400.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Explorá nuevos destinos">
+                <div class="flex flex-col absolute inset-0 items-center justify-center text-white bg-black bg-opacity-10">
+                    <div class="text-center px-4 py-8 rounded-2xl bg-black bg-opacity-40 backdrop-blur-sm border border-white border-opacity-20">
+                        <h1 class="font-fredoka font-bold text-5xl md:text-6xl mb-4 text-white drop-shadow-2xl leading-tight">
+                            <span class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">Explorá</span>
+                            <span class="text-accent drop-shadow-lg">nuevos destinos</span>
+                        </h1>
+                        <span class="uppercase text-lg md:text-xl font-semibold tracking-wider text-white drop-shadow-lg opacity-90">
+                            Tu aventura comienza acá
+                        </span>
+                    </div>
+                </div>
             </div>
             <!-- Item 3 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="<?= base_url('/uploads/1760054039_ebed9a812928007cbc27.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            <div class="hidden duration-300 ease-in-out" data-carousel-item>
+                <img src="<?= base_url('/uploads/pexels-kampus-8623328.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Viajá con confianza">
+                <div class="flex flex-col absolute inset-0 items-center justify-center text-white bg-black bg-opacity-10">
+                    <div class="text-center px-4 py-8 rounded-2xl bg-black bg-opacity-40 backdrop-blur-sm border border-white border-opacity-20">
+                        <h1 class="font-fredoka font-bold text-5xl md:text-6xl mb-4 text-white drop-shadow-2xl leading-tight">
+                            <span class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">Viajá con</span>
+                            <span class="text-accent drop-shadow-lg">confianza</span>
+                        </h1>
+                        <span class="uppercase text-lg md:text-xl font-semibold tracking-wider text-white drop-shadow-lg opacity-90">
+                            Experiencias inolvidables te esperan
+                        </span>
+                    </div>
+                </div>
             </div>
-            <!-- Item 4 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="<?= base_url('/uploads/1760054039_ebed9a812928007cbc27.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <!-- Item 5 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="<?= base_url('/uploads/1760054039_ebed9a812928007cbc27.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
+        </div>
+        <!-- Slider indicators -->
+        <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
         </div>
         <!-- Slider controls -->
         <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
@@ -63,7 +94,6 @@
             </span>
         </button>
     </div>
-
 
     <?= view('partials/paquetes/_package_detail_modal') ?>
 
@@ -107,10 +137,11 @@
                                 data-hotel="<?= esc($p['hotel'] ?? '') ?>"
                                 data-transporte="<?= esc($p['transporte'] ?? '') ?>"
                                 data-dias="<?= esc($p['dias'] ?? '') ?>"
-                                data-stock="<?= esc($p['stock'] ?? '') ?>"
+                                data-noches="<?= esc($p['noches'] ?? '') ?>"
                                 data-precio="<?= esc($p['precio'] ?? '') ?>"
                                 data-imagen="<?= esc($p['imagen'] ?? '') ?>"
-                                data-imagen-url="<?= !empty($p['imagen']) ? base_url($p['imagen']) : '' ?>">
+                                data-imagen-url="<?= !empty($p['imagen']) ? base_url($p['imagen']) : '' ?>"
+                                data-descripcion="<?= esc($p['descripcion'] ?? '') ?>">
                                 <div class="w-64 flex-shrink-0 bg-gray-100">
                                     <?php if (!empty($p['imagen'])): ?>
                                         <img src="<?= base_url($p['imagen']) ?>" alt="<?= esc($p['destino']) ?>" class="block w-full h-full object-cover" />
@@ -155,7 +186,7 @@
 
                                     <div class="text-sm text-gray-600 mb-3 flex-shrink-0">
                                         <div class="mb-1">
-                                            <span class="font-medium"><?= esc($p['dias']) ?> días, <?= esc($p['dias'] - 1) ?> noches</span>
+                                            <span class="font-medium"><?= esc($p['dias']) ?> días, <?= esc($p['noches'] ?? ($p['dias'] - 1)) ?> noches</span>
                                         </div>
                                         <div class="truncate w-full">
                                             <?= esc($p['transporte'] ?? '') ?> • <?= esc($p['hotel'] ?? '') ?>
@@ -176,8 +207,90 @@
             <?php else: ?>
                 <p class="text-center py-8 text-gray-600">No hay paquetes disponibles.</p>
             <?php endif; ?>
+
+            <!-- Sección de Ofertas -->
+            <div class="mt-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 font-fredoka mb-4">
+                        Ofertas Especiales
+                    </h2>
+                    <p class="text-xl text-gray-600">
+                        Aprovechá estas oportunidades únicas para viajar más por menos
+                    </p>
+                </div>
+
+                <?php if (!empty($ofertas) && is_array($ofertas)): ?>
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <?php foreach ($ofertas as $oferta): ?>
+                        <?php 
+                            $precioOriginal = $oferta['precio'];
+                            $precioConDescuento = $precioOriginal - ($precioOriginal * $oferta['descuento'] / 100);
+                        ?>
+                        <div class="group relative overflow-hidden rounded-2xl shadow-lg bg-white transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
+                             role="button"
+                             tabindex="0"
+                             onclick="openBuyModal(this)"
+                             onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openBuyModal(this); }"
+                             data-id="<?= $oferta['id'] ?>"
+                             data-destino="<?= esc($oferta['destino']) ?>"
+                             data-categoria="<?= esc($oferta['categoria'] ?? 'Paquete') ?>"
+                             data-hotel="<?= esc($oferta['hotel'] ?? '') ?>"
+                             data-transporte="<?= esc($oferta['transporte'] ?? '') ?>"
+                             data-dias="<?= esc($oferta['dias'] ?? '') ?>"
+                             data-noches="<?= esc($oferta['noches'] ?? '') ?>"
+                             data-stock="<?= esc($oferta['stock'] ?? '') ?>"
+                             data-precio="<?= esc($precioConDescuento) ?>"
+                             data-imagen="<?= esc($oferta['imagen'] ?? '') ?>"
+                             data-imagen-url="<?= !empty($oferta['imagen']) ? base_url($oferta['imagen']) : '' ?>"
+                             data-descripcion="<?= esc($oferta['descripcion'] ?? '') ?>">
+                            
+                            <div class="aspect-[4/3] overflow-hidden relative">
+                                <?php if (!empty($oferta['imagen'])): ?>
+                                    <img src="<?= base_url($oferta['imagen']) ?>"
+                                        alt="<?= esc($oferta['destino']) ?>"
+                                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                                <?php else: ?>
+                                    <img src="https://dummyimage.com/600x400/ffffff/000000.jpg&text=Sin+Foto"
+                                        alt="Sin foto"
+                                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                                <?php endif; ?>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+                                
+                                <!-- Badge de descuento -->
+                                <div class="absolute top-4 left-4">
+                                    <span class="bg-primary text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                                        -<?= esc($oferta['descuento']) ?>%
+                                    </span>
+                                </div>
+
+                                <!-- Contenido superpuesto -->
+                                <div class="absolute bottom-0 left-0 right-0 p-4">
+                                    <div class="bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-2xl p-4 text-center text-white">
+                                        <h3 class="text-lg font-bold mb-2 drop-shadow"><?= esc($oferta['destino']) ?></h3>
+                                        
+                                        <div class="flex items-center justify-center gap-2 mb-2">
+                                            <span class="text-xs opacity-80 line-through">$<?= number_format($precioOriginal, 0) ?></span>
+                                            <span class="text-xl font-bold text-primary">$<?= number_format($precioConDescuento, 0) ?></span>
+                                            <span>/por persona</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php else: ?>
+                <div class="text-center py-12">
+                    <i class="fas fa-tag text-6xl text-gray-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-gray-600 mb-2">No hay ofertas disponibles</h3>
+                    <p class="text-gray-500">¡Mantenete atento para las próximas ofertas especiales!</p>
+                </div>
+            <?php endif; ?>
+                </div>
+            </div>
         </div>
     </section>
+
     <?= view('partials/_footer') ?>
 
     <!-- Flowbite JS -->

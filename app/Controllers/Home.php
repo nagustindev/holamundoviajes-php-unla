@@ -12,7 +12,8 @@ class Home extends BaseController
         
         $paquetesModel = new PaquetesModel();
         $userId = session()->get('user_id') ?? null; // Obtener ID del usuario logueado o null si no está logueado
-        $data['paquetes'] = $paquetesModel->getPaquetesConInfoAdicional($userId);
+        $data['paquetes'] = $paquetesModel->getPaquetesRegularesConInfoAdicional($userId); // Solo paquetes regulares (no ofertas)
+        $data['ofertas'] = $paquetesModel->getOfertas(); // Cargar ofertas para la sección de ofertas
 
         return view('home/index', $data);
     }

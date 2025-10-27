@@ -53,10 +53,15 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-3 gap-6">
+                <div class="grid grid-cols-4 gap-6">
                     <div>
                         <label for="add_dias" class="block text-sm font-medium text-gray-700 mb-2">Días</label>
                         <input id="add_dias" type="number" name="dias" min="1" required
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label for="add_noches" class="block text-sm font-medium text-gray-700 mb-2">Noches</label>
+                        <input id="add_noches" type="number" name="noches" min="0" required
                             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                     </div>
                     <div>
@@ -68,6 +73,34 @@
                         <label for="add_precio" class="block text-sm font-medium text-gray-700 mb-2">Precio</label>
                         <input id="add_precio" type="number" name="precio" min="0" step="0.01" required
                             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="add_descripcion" class="block text-sm font-medium text-gray-700 mb-2">Descripción</label>
+                    <textarea id="add_descripcion" name="descripcion" rows="4" 
+                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        placeholder="Describa los detalles del paquete turístico..."></textarea>
+                </div>
+
+                <!-- Sección de Ofertas -->
+                <div class="border-t pt-6">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4 font-fredoka">Configuración de Oferta</h3>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-center">
+                            <input id="add_es_oferta" type="checkbox" name="es_oferta" value="1"
+                                class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+                                onchange="toggleDescuentoField('add')">
+                            <label for="add_es_oferta" class="ml-2 block text-sm text-gray-700">
+                                Marcar como oferta especial
+                            </label>
+                        </div>
+                        <div>
+                            <label for="add_descuento" class="block text-sm font-medium text-gray-700 mb-2">Descuento (%)</label>
+                            <input id="add_descuento" type="number" name="descuento" min="0" max="100" value="0" disabled
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent disabled:bg-gray-100">
+                            <p class="text-xs text-gray-500 mt-1">Solo se aplica si está marcado como oferta</p>
+                        </div>
                     </div>
                 </div>
 

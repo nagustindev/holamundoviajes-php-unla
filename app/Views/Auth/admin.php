@@ -91,10 +91,15 @@
                             </div>
 
                             <div class="flex-1 p-4 min-w-0 flex flex-col">
-                                <div class="mb-2 flex-shrink-0">
+                                <div class="mb-2 flex-shrink-0 flex flex-wrap gap-1">
                                     <span class="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
                                         <?= esc($p['categoria'] ?? 'Paquete') ?>
                                     </span>
+                                    <?php if (isset($p['es_oferta']) && $p['es_oferta']): ?>
+                                        <span class="inline-block px-2 py-1 text-xs bg-red-100 text-red-800 rounded-full">
+                                            <i class="fas fa-tag mr-1"></i>Oferta <?= $p['descuento'] ?>% OFF
+                                        </span>
+                                    <?php endif; ?>
                                 </div>
 
                                 <h3 class="text-xl font-bold text-gray-800 mb-2 block truncate w-full flex-shrink-0">
@@ -103,7 +108,7 @@
 
                                 <div class="text-sm text-gray-600 mb-3 flex-shrink-0">
                                     <div class="mb-1">
-                                        <span class="font-medium"><?= esc($p['dias']) ?> días, <?= esc($p['dias'] - 1) ?> noches</span>
+                                        <span class="font-medium"><?= esc($p['dias']) ?> días, <?= esc($p['noches'] ?? ($p['dias'] - 1)) ?> noches</span>
                                     </div>
                                     <div class="truncate w-full">
                                         <?= esc($p['transporte'] ?? '') ?> • <?= esc($p['hotel'] ?? '') ?>
@@ -111,10 +116,19 @@
                                 </div>
 
                                 <div class="mt-auto min-h-0">
-                                    <p class="text-2xl font-bold text-gray-800">
-                                        <?= isset($p['precio']) ? '$' . esc($p['precio']) : '$110' ?>
+                                    <div class="flex items-center gap-2">
+                                        <?php if (isset($p['es_oferta']) && $p['es_oferta'] && $p['descuento'] > 0): ?>
+                                            <?php 
+                                                $precioOriginal = $p['precio'];
+                                                $precioConDescuento = $precioOriginal - ($precioOriginal * $p['descuento'] / 100);
+                                            ?>
+                                            <span class="text-sm text-gray-500 line-through"><?= '$' . esc($precioOriginal) ?></span>
+                                            <span class="text-2xl font-bold text-red-600"><?= '$' . number_format($precioConDescuento, 0) ?></span>
+                                        <?php else: ?>
+                                            <span class="text-2xl font-bold text-gray-800"><?= isset($p['precio']) ? '$' . esc($p['precio']) : '$110' ?></span>
+                                        <?php endif; ?>
                                         <span class="text-base font-normal text-gray-600">/por persona</span>
-                                    </p>
+                                    </div>
                                     <p class="text-sm text-gray-600">Stock: <?= esc($p['stock'] ?? 'No especificado') ?></p>
                                     <div class="mt-3 flex gap-2 flex-nowrap overflow-x-auto">
                                         <button type="button"
@@ -126,9 +140,13 @@
                                             data-hotel="<?= esc($p['hotel'] ?? '') ?>"
                                             data-transporte="<?= esc($p['transporte'] ?? '') ?>"
                                             data-dias="<?= esc($p['dias'] ?? '') ?>"
+                                            data-noches="<?= esc($p['noches'] ?? '') ?>"
                                             data-stock="<?= esc($p['stock'] ?? '') ?>"
                                             data-precio="<?= esc($p['precio'] ?? '') ?>"
-                                            data-imagen="<?= esc($p['imagen'] ?? '') ?>">
+                                            data-imagen="<?= esc($p['imagen'] ?? '') ?>"
+                                            data-descuento="<?= esc($p['descuento'] ?? '0') ?>"
+                                            data-es-oferta="<?= isset($p['es_oferta']) && $p['es_oferta'] ? '1' : '0' ?>"
+                                            data-descripcion="<?= esc($p['descripcion'] ?? '') ?>">
                                             Editar
                                         </button>
                                         <a href="<?= site_url('/paquetes/delete/' . $p['id']) ?>" onclick="return confirm('¿Eliminar paquete?')" class="px-3 py-1 text-sm bg-red-600 text-white rounded hover:bg-red-700">Eliminar</a>

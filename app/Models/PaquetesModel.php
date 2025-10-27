@@ -11,8 +11,8 @@ class PaquetesModel extends Model
     // modelo tienen que impactar en la tabla 'paquetes'.
     protected $table = 'paquetes';
     // Sirve para indicarle a CodeIgniter qué campos se pueden insertar o actualizar
-    // en la tabla 'paquetes'. En este caso, el id, destino, hotel, transporte, dias, stock, imagen e categoria.
-    protected $allowedFields = ['id', 'destino', 'hotel', 'transporte', 'dias', 'stock', 'imagen', 'categoria', 'precio'];
+    // en la tabla 'paquetes'. En este caso, el id, destino, hotel, transporte, dias, noches, stock, imagen, categoria, precio, descuento, es_oferta y descripcion.
+    protected $allowedFields = ['id', 'destino', 'hotel', 'transporte', 'dias', 'noches', 'stock', 'imagen', 'categoria', 'precio', 'descuento', 'es_oferta', 'descripcion'];
 
     // Función que retorna todos los paquetes almacenados en la base de datos.
     public function getPaquetes()
@@ -26,24 +26,28 @@ class PaquetesModel extends Model
         return $this->where('id', $id)->first();
     }
     // Función para crear un paquete.
-    // Recibe destino, hotel, transporte, dias, stock, imagen e categoria como parámetros.
-    public function savePaquete($destino, $hotel, $transporte, $dias, $stock, $imagen, $categoria, $precio)
+    // Recibe destino, hotel, transporte, dias, noches, stock, imagen, categoria, precio, descuento, es_oferta y descripcion como parámetros.
+    public function savePaquete($destino, $hotel, $transporte, $dias, $noches, $stock, $imagen, $categoria, $precio, $descuento = 0, $es_oferta = false, $descripcion = '')
     {
-        // Indicamos que vamos a crear un paquete con ese 'destino', 'hotel', 'transporte', 'dias', 'stock', 'imagen' , 'categoria', y 'precio'.
+        // Indicamos que vamos a crear un paquete con ese 'destino', 'hotel', 'transporte', 'dias', 'noches', 'stock', 'imagen' , 'categoria', 'precio', 'descuento', 'es_oferta' y 'descripcion'.
         $this->save([
             'destino' => $destino,
             'hotel' => $hotel,
             'transporte' => $transporte,
             'dias' => $dias,
+            'noches' => $noches,
             'stock' => $stock,
             'imagen' => $imagen,
             'categoria' => $categoria,
-            'precio' => $precio
+            'precio' => $precio,
+            'descuento' => $descuento,
+            'es_oferta' => $es_oferta,
+            'descripcion' => $descripcion
         ]);
     }
     // Función para modificar un paquete.
-    // Recibe el ID del paquete a modificar, el destino, el hotel, el transporte, los días, el stock, la imagen y la categoria.
-    public function updatePaquete($id, $nuevoDestino, $nuevoHotel, $nuevoTransporte, $nuevoDias, $nuevoStock, $nuevoImagen, $nuevoCategoria, $nuevoPrecio)
+    // Recibe el ID del paquete a modificar, el destino, el hotel, el transporte, los días, las noches, el stock, la imagen, la categoria, precio, descuento, es_oferta y descripcion.
+    public function updatePaquete($id, $nuevoDestino, $nuevoHotel, $nuevoTransporte, $nuevoDias, $nuevoNoches, $nuevoStock, $nuevoImagen, $nuevoCategoria, $nuevoPrecio, $nuevoDescuento = 0, $nuevoEsOferta = false, $nuevoDescripcion = '')
     {
         // Construimos el array de datos a actualizar
         $data = [
@@ -51,9 +55,13 @@ class PaquetesModel extends Model
             'hotel' => $nuevoHotel,
             'transporte' => $nuevoTransporte,
             'dias' => $nuevoDias,
+            'noches' => $nuevoNoches,
             'stock' => $nuevoStock,
             'categoria' => $nuevoCategoria,
-            'precio' => $nuevoPrecio
+            'precio' => $nuevoPrecio,
+            'descuento' => $nuevoDescuento,
+            'es_oferta' => $nuevoEsOferta,
+            'descripcion' => $nuevoDescripcion
         ];
         // Solo actualiza la imagen si se subió una nueva
         if ($nuevoImagen) {
@@ -136,5 +144,66 @@ class PaquetesModel extends Model
                      ->where('id_usuario', $userId)
                      ->countAllResults();
         return $compras >= 3;
+    }
+
+    // Función para obtener solo los paquetes que son ofertas
+    public function getOfertas()
+    {
+        return $this->where('es_oferta', true)->findAll();
+    }
+
+    // Función para obtener paquetes que NO son ofertas con información adicional
+    public function getPaquetesRegularesConInfoAdicional($userId = null)
+    {
+        $paquetes = $this->where('es_oferta !=', true)
+                         ->orWhere('es_oferta', null)
+                         ->findAll();
+        
+        $stockMinimo = 5; // Definir el stock mínimo
+
+        $db = \Config\Database::connect();
+        $masVendidoQuery = $db->query("
+            SELECT id_paquete, SUM(cantidad) as total_vendido
+            FROM ventas
+            GROUP BY id_paquete
+            ORDER BY total_vendido DESC
+            LIMIT 1
+        ");
+        $masVendido = $masVendidoQuery->getRow();
+        $destinoPreferido = $masVendido ? $masVendido->id_paquete : null;
+
+        foreach ($paquetes as &$paquete) {
+            $paquete['estados'] = [];
+
+            // Agotado
+            if ($paquete['stock'] == 0) {
+                $paquete['estados'][] = 'agotado';
+            }
+            // Pocas plazas
+            elseif ($paquete['stock'] < $stockMinimo) {
+                $paquete['estados'][] = 'pocas_plazas';
+            }
+
+            // Destino preferido
+            if ($paquete['id'] == $destinoPreferido) {
+                $paquete['estados'][] = 'destino_preferido';
+            }
+
+            // Cliente frecuente (si hay usuario logueado)
+            if ($userId && $this->esClienteFrecuente($userId)) {
+                $paquete['estados'][] = 'cliente_frecuente';
+            }
+        }
+
+        return $paquetes;
+    }
+
+    // Función para calcular el precio con descuento
+    public function getPrecioConDescuento($paquete)
+    {
+        if ($paquete['es_oferta'] && $paquete['descuento'] > 0) {
+            return $paquete['precio'] - ($paquete['precio'] * $paquete['descuento'] / 100);
+        }
+        return $paquete['precio'];
     }
 }
