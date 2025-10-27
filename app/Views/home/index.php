@@ -288,10 +288,132 @@
             <?php endif; ?>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <?= view('partials/_footer') ?>
+            <!-- Sección de Reseñas -->
+            <div class="mt-16">
+                <div class="container mx-auto px-4 max-w-6xl">
+                    <div class="text-center mb-12">
+                        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-2">TESTIMONIOS</p>
+                        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 font-fredoka mb-4">
+                            Uníte a Cientos de<br>
+                            Clientes Satisfechos!
+                        </h2>
+                        <p class="text-gray-600 text-xl">
+                            Miles de viajeros eleigieron HolaMundo Viajes para crear recuerdos inolvidables.
+                        </p>
+                    </div>
+
+                    <!-- Grid de Reseñas -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                    <!-- Reseña 1 -->
+                    <div class="bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col min-h-[280px]">
+                        <div class="flex-1">
+                            <svg class="w-6 h-6 text-gray-300 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
+                            </svg>
+                            <p class="text-gray-700 leading-relaxed text-sm mb-4">
+                                "Viajar con ellos es realmente genial. Excelente servicio al cliente, asequible, y momentos inolvidables."
+                            </p>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center gap-1 mb-3">
+                                <?php for($i = 0; $i < 5; $i++): ?>
+                                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                <?php endfor; ?>
+                                <span class="text-gray-500 text-xs ml-1">5.0</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face"
+                                     alt="Verónica Rucci"
+                                     class="w-10 h-10 rounded-full object-cover">
+                                <span class="font-medium text-gray-800 text-sm">Verónica Rucci</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reseña 2 -->
+                    <div class="bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col min-h-[280px]">
+                        <div class="flex-1">
+                            <svg class="w-6 h-6 text-gray-300 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
+                            </svg>
+                            <p class="text-gray-700 leading-relaxed text-sm mb-4">
+                                "Itinerario cuidadoso, guías locales experimentados, excelente relación calidad-precio. Mi aventura no solo fue libre de estrés."
+                            </p>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center gap-1 mb-3">
+                                <?php for($i = 0; $i < 5; $i++): ?>
+                                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                <?php endfor; ?>
+                                <span class="text-gray-500 text-xs ml-1">5.0</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face"
+                                     alt="Roberto Oliva"
+                                     class="w-10 h-10 rounded-full object-cover">
+                                <span class="font-medium text-gray-800 text-sm">Roberto Oliva</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reseña 3 -->
+                    <div class="bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col min-h-[280px]">
+                        <div class="flex-1">
+                            <svg class="w-6 h-6 text-gray-300 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
+                            </svg>
+                            <p class="text-gray-700 leading-relaxed text-sm mb-4">
+                                "Las vacaciones familiares perfectas! Personal atento, miembros cálidos del servicio, y recuerdos maravillosos."
+                            </p>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center gap-1 mb-3">
+                                <?php for($i = 0; $i < 5; $i++): ?>
+                                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                <?php endfor; ?>
+                                <span class="text-gray-500 text-xs ml-1">5.0</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face"
+                                     alt="Patricia Santos"
+                                     class="w-10 h-10 rounded-full object-cover">
+                                <span class="font-medium text-gray-800 text-sm">Patricia Santos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reseña 4 -->
+                    <div class="bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col min-h-[280px]">
+                        <div class="flex-1">
+                            <svg class="w-6 h-6 text-gray-300 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
+                            </svg>
+                            <p class="text-gray-700 leading-relaxed text-sm mb-4">
+                                "Nuestras vacaciones familiares fueron increíbles! El servicio fue excepcional y las guías locales hicieron nuestra experiencia inolvidable."
+                            </p>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center gap-1 mb-3">
+                                <?php for($i = 0; $i < 5; $i++): ?>
+                                    <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                <?php endfor; ?>
+                                <span class="text-gray-500 text-xs ml-1">5.0</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face"
+                                     alt="Alejandro Gambón"
+                                     class="w-10 h-10 rounded-full object-cover">
+                                <span class="font-medium text-gray-800 text-sm">Alejandro Gambón</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </section>    <?= view('partials/_footer') ?>
 
     <!-- Flowbite JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
