@@ -115,6 +115,44 @@
                                     </div>
                                 </div>
 
+                                <!-- Descripción -->
+                                <?php if (!empty($p['descripcion'])): ?>
+                                    <div class="mb-3 flex-shrink-0">
+                                        <div class="bg-gray-50 rounded-lg p-3">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h4 class="text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                                                    <i class="fas fa-align-left mr-1"></i>Descripción
+                                                </h4>
+                                                <button type="button" 
+                                                        class="text-xs text-blue-600 hover:text-blue-800 font-medium"
+                                                        onclick="toggleDescription(<?= $p['id'] ?>)">
+                                                    <span id="toggle-text-<?= $p['id'] ?>">Ver más</span>
+                                                    <i id="toggle-icon-<?= $p['id'] ?>" class="fas fa-chevron-down ml-1"></i>
+                                                </button>
+                                            </div>
+                                            <div id="description-<?= $p['id'] ?>" class="description-content hidden">
+                                                <p class="text-sm text-gray-700 leading-relaxed">
+                                                    <?= esc($p['descripcion']) ?>
+                                                </p>
+                                            </div>
+                                            <div id="description-preview-<?= $p['id'] ?>" class="description-preview">
+                                                <p class="text-sm text-gray-700 leading-relaxed">
+                                                    <?= strlen($p['descripcion']) > 80 ? esc(substr($p['descripcion'], 0, 80)) . '...' : esc($p['descripcion']) ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php else: ?>
+                                    <div class="mb-3 flex-shrink-0">
+                                        <div class="bg-gray-50 rounded-lg p-3">
+                                            <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                                                <i class="fas fa-align-left mr-1"></i>Descripción
+                                            </h4>
+                                            <p class="text-sm text-gray-500 italic">Sin descripción disponible</p>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+
                                 <div class="mt-auto min-h-0">
                                     <div class="flex items-center gap-2">
                                         <?php if (isset($p['es_oferta']) && $p['es_oferta'] && $p['descuento'] > 0): ?>
@@ -167,6 +205,31 @@
     <?= view('partials/_footer') ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
+    
+    <script>
+        function toggleDescription(packageId) {
+            const fullDescription = document.getElementById(`description-${packageId}`);
+            const previewDescription = document.getElementById(`description-preview-${packageId}`);
+            const toggleText = document.getElementById(`toggle-text-${packageId}`);
+            const toggleIcon = document.getElementById(`toggle-icon-${packageId}`);
+            
+            if (fullDescription.classList.contains('hidden')) {
+                // Mostrar descripción completa
+                fullDescription.classList.remove('hidden');
+                previewDescription.classList.add('hidden');
+                toggleText.textContent = 'Ver menos';
+                toggleIcon.classList.remove('fa-chevron-down');
+                toggleIcon.classList.add('fa-chevron-up');
+            } else {
+                // Mostrar preview
+                fullDescription.classList.add('hidden');
+                previewDescription.classList.remove('hidden');
+                toggleText.textContent = 'Ver más';
+                toggleIcon.classList.remove('fa-chevron-up');
+                toggleIcon.classList.add('fa-chevron-down');
+            }
+        }
+    </script>
 </body>
 
 </html>

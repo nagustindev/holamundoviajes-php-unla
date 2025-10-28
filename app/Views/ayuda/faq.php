@@ -46,7 +46,7 @@
                     </h2>
                     <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
                         <div class="py-4 px-5">
-                            <p class="text-lg">HolaMundo es una empresa de viajes especializada en los mejores y más baratos viajes a cualquier destino. HolaMundo es parte de una gran compañía de viajes con mucha experiencia en ofrecer viajes a América, Europa Asia y Oceanía. Le ofrecemos una buena relación calidad-precio y un servicio individual. Como especialista en viajes a estos países, por supuesto, ofrecemos mucha personalización, siempre puede contactar con nosotros para obtener más información u ofertas actuales. Además, trabajamos constantemente para ampliar la oferta en nuestro sitio web. </p>
+                            <p class="text-lg">HolaMundo es una empresa de viajes especializada en los mejores y más baratos viajes a cualquier destino. HolaMundo es parte de una gran compañía de viajes con mucha experiencia en ofrecer viajes a América, Europa, Asia y Oceanía. Le ofrecemos una buena relación calidad-precio y un servicio individual. Como especialista en viajes a estos países, por supuesto, ofrecemos mucha personalización, siempre puede contactar con nosotros para obtener más información u ofertas actuales. Además, trabajamos constantemente para ampliar la oferta en nuestro sitio web. </p>
                         </div>
                     </div>
                 </div>

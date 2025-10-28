@@ -23,12 +23,12 @@
 
     <div id="default-carousel" class="relative w-full" data-carousel="slide">
         <!-- Carousel wrapper -->
-        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+        <div class="relative h-96 overflow-hidden">
             <!-- Item 1 -->
             <div class="duration-300 ease-in-out" data-carousel-item="active">
                 <img src="<?= base_url('/uploads/pexels-dreamlensproduction-2450296.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="HolaMundo Viajes">
                 <div class="flex flex-col absolute inset-0 items-center justify-center text-white bg-black bg-opacity-25">
-                    <div class="text-center px-4 py-8 rounded-2xl bg-black bg-opacity-40 backdrop-blur-sm border border-white border-opacity-10">
+                    <div class="text-center px-4 py-8 rounded-2xl bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-20">
                         <h1 class="font-fredoka font-bold text-5xl md:text-6xl mb-4 text-white drop-shadow-2xl leading-tight">
                             <span class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">HolaMundo</span>
                             <span class="text-accent drop-shadow-lg">Viajes</span>
@@ -43,7 +43,7 @@
             <div class="hidden duration-300 ease-in-out" data-carousel-item>
                 <img src="<?= base_url('/uploads/pexels-john-tekeridis-21837-28505400.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Explorá nuevos destinos">
                 <div class="flex flex-col absolute inset-0 items-center justify-center text-white bg-black bg-opacity-10">
-                    <div class="text-center px-4 py-8 rounded-2xl bg-black bg-opacity-40 backdrop-blur-sm border border-white border-opacity-20">
+                    <div class="text-center px-4 py-8 rounded-2xl bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-20">
                         <h1 class="font-fredoka font-bold text-5xl md:text-6xl mb-4 text-white drop-shadow-2xl leading-tight">
                             <span class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">Explorá</span>
                             <span class="text-accent drop-shadow-lg">nuevos destinos</span>
@@ -58,7 +58,7 @@
             <div class="hidden duration-300 ease-in-out" data-carousel-item>
                 <img src="<?= base_url('/uploads/pexels-kampus-8623328.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Viajá con confianza">
                 <div class="flex flex-col absolute inset-0 items-center justify-center text-white bg-black bg-opacity-10">
-                    <div class="text-center px-4 py-8 rounded-2xl bg-black bg-opacity-40 backdrop-blur-sm border border-white border-opacity-20">
+                    <div class="text-center px-4 py-8 rounded-2xl bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-20">
                         <h1 class="font-fredoka font-bold text-5xl md:text-6xl mb-4 text-white drop-shadow-2xl leading-tight">
                             <span class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">Viajá con</span>
                             <span class="text-accent drop-shadow-lg">confianza</span>
@@ -123,8 +123,8 @@
                 <div class="grid grid-cols-2 gap-6">
                     <?php foreach ($paquetes as $p): ?>
                         <?php $isAgotado = !empty($p['estados']) && in_array('agotado', $p['estados']); ?>
-                        <div class="w-full">
-                            <div class="flex rounded-xl shadow-lg border border-gray-200 bg-white overflow-hidden <?= $isAgotado ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer hover:shadow-xl' ?> transition-shadow"
+                        <div class="w-full h-56">
+                            <div class="flex h-full rounded-xl shadow-lg border border-gray-200 bg-white overflow-hidden <?= $isAgotado ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer hover:shadow-xl' ?> transition-shadow"
                                 <?php if (!$isAgotado): ?>
                                 role="button"
                                 tabindex="0"
@@ -142,7 +142,7 @@
                                 data-imagen="<?= esc($p['imagen'] ?? '') ?>"
                                 data-imagen-url="<?= !empty($p['imagen']) ? base_url($p['imagen']) : '' ?>"
                                 data-descripcion="<?= esc($p['descripcion'] ?? '') ?>">
-                                <div class="w-64 flex-shrink-0 bg-gray-100">
+                                <div class="w-52 flex-shrink-0 bg-gray-100">
                                     <?php if (!empty($p['imagen'])): ?>
                                         <img src="<?= base_url($p['imagen']) ?>" alt="<?= esc($p['destino']) ?>" class="block w-full h-full object-cover" />
                                     <?php else: ?>
@@ -156,7 +156,6 @@
                                             <?= esc($p['categoria'] ?? 'Paquete') ?>
                                         </span>
 
-                                        <!-- Mensajes de estado -->
                                         <?php if (!empty($p['estados'])): ?>
                                             <?php foreach ($p['estados'] as $estado): ?>
                                                 <?php
@@ -208,7 +207,6 @@
                 <p class="text-center py-8 text-gray-600">No hay paquetes disponibles.</p>
             <?php endif; ?>
 
-            <!-- Sección de Ofertas -->
             <div class="mt-16">
                 <div class="text-center mb-12">
                     <h2 class="text-4xl md:text-5xl font-bold text-gray-800 font-fredoka mb-4">
@@ -256,14 +254,11 @@
                                 <?php endif; ?>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
                                 
-                                <!-- Badge de descuento -->
                                 <div class="absolute top-4 left-4">
                                     <span class="bg-primary text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
                                         -<?= esc($oferta['descuento']) ?>%
                                     </span>
                                 </div>
-
-                                <!-- Contenido superpuesto -->
                                 <div class="absolute bottom-0 left-0 right-0 p-4">
                                     <div class="bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-2xl p-4 text-center text-white">
                                         <h3 class="text-lg font-bold mb-2 drop-shadow"><?= esc($oferta['destino']) ?></h3>
@@ -289,23 +284,20 @@
                 </div>
             </div>
 
-            <!-- Sección de Reseñas -->
             <div class="mt-16">
                 <div class="container mx-auto px-4 max-w-6xl">
                     <div class="text-center mb-12">
                         <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-2">TESTIMONIOS</p>
                         <h2 class="text-4xl md:text-5xl font-bold text-gray-800 font-fredoka mb-4">
-                            Uníte a Cientos de<br>
+                            Unite a Cientos de<br>
                             Clientes Satisfechos!
                         </h2>
                         <p class="text-gray-600 text-xl">
-                            Miles de viajeros eleigieron HolaMundo Viajes para crear recuerdos inolvidables.
+                            Miles de viajeros eligieron HolaMundo Viajes para crear recuerdos inolvidables.
                         </p>
                     </div>
 
-                    <!-- Grid de Reseñas -->
                     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-                    <!-- Reseña 1 -->
                     <div class="bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col min-h-[280px]">
                         <div class="flex-1">
                             <svg class="w-6 h-6 text-gray-300 mb-4" fill="currentColor" viewBox="0 0 24 24">
@@ -323,7 +315,7 @@
                                 <span class="text-gray-500 text-xs ml-1">5.0</span>
                             </div>
                             <div class="flex items-center gap-3">
-                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face"
+                                <img src="<?= base_url('uploads/ben-den-engelsen-zNWlX5Sw9a4-unsplash.jpg') ?>"
                                      alt="Verónica Rucci"
                                      class="w-10 h-10 rounded-full object-cover">
                                 <span class="font-medium text-gray-800 text-sm">Verónica Rucci</span>
@@ -331,7 +323,6 @@
                         </div>
                     </div>
 
-                    <!-- Reseña 2 -->
                     <div class="bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col min-h-[280px]">
                         <div class="flex-1">
                             <svg class="w-6 h-6 text-gray-300 mb-4" fill="currentColor" viewBox="0 0 24 24">
@@ -349,7 +340,7 @@
                                 <span class="text-gray-500 text-xs ml-1">5.0</span>
                             </div>
                             <div class="flex items-center gap-3">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face"
+                                <img src="<?= base_url('uploads/ben-den-engelsen-YUu9UAcOKZ4-unsplash.jpg') ?>"
                                      alt="Roberto Oliva"
                                      class="w-10 h-10 rounded-full object-cover">
                                 <span class="font-medium text-gray-800 text-sm">Roberto Oliva</span>
@@ -357,7 +348,6 @@
                         </div>
                     </div>
 
-                    <!-- Reseña 3 -->
                     <div class="bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col min-h-[280px]">
                         <div class="flex-1">
                             <svg class="w-6 h-6 text-gray-300 mb-4" fill="currentColor" viewBox="0 0 24 24">
@@ -375,7 +365,7 @@
                                 <span class="text-gray-500 text-xs ml-1">5.0</span>
                             </div>
                             <div class="flex items-center gap-3">
-                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face"
+                                <img src="<?= base_url('uploads/roth-melinda-JuDowpAjLXo-unsplash.jpg') ?>"
                                      alt="Patricia Santos"
                                      class="w-10 h-10 rounded-full object-cover">
                                 <span class="font-medium text-gray-800 text-sm">Patricia Santos</span>
@@ -383,7 +373,6 @@
                         </div>
                     </div>
 
-                    <!-- Reseña 4 -->
                     <div class="bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col min-h-[280px]">
                         <div class="flex-1">
                             <svg class="w-6 h-6 text-gray-300 mb-4" fill="currentColor" viewBox="0 0 24 24">
@@ -401,7 +390,7 @@
                                 <span class="text-gray-500 text-xs ml-1">5.0</span>
                             </div>
                             <div class="flex items-center gap-3">
-                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face"
+                                <img src="<?= base_url('uploads/podmatch-CgCH4V4cNGk-unsplash.jpg') ?>"
                                      alt="Alejandro Gambón"
                                      class="w-10 h-10 rounded-full object-cover">
                                 <span class="font-medium text-gray-800 text-sm">Alejandro Gambón</span>
