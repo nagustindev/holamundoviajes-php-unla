@@ -29,11 +29,11 @@
                 <img src="<?= base_url('/uploads/pexels-dreamlensproduction-2450296.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="HolaMundo Viajes">
                 <div class="flex flex-col absolute inset-0 items-center justify-center text-white bg-black bg-opacity-25">
                     <div class="text-center px-4 py-8 rounded-2xl bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-20">
-                        <h1 class="font-fredoka font-bold text-5xl md:text-6xl mb-4 text-white drop-shadow-2xl leading-tight">
+                        <h1 class="font-fredoka font-bold text-6xl mb-4 text-white drop-shadow-2xl leading-tight">
                             <span class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">HolaMundo</span>
                             <span class="text-accent drop-shadow-lg">Viajes</span>
                         </h1>
-                        <span class="uppercase text-lg md:text-xl font-semibold tracking-wider text-white drop-shadow-lg opacity-90">
+                        <span class="uppercase text-xl font-semibold tracking-wider text-white drop-shadow-lg opacity-90">
                             Descubrí el mundo con nosotros
                         </span>
                     </div>
@@ -44,11 +44,11 @@
                 <img src="<?= base_url('/uploads/pexels-john-tekeridis-21837-28505400.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Explorá nuevos destinos">
                 <div class="flex flex-col absolute inset-0 items-center justify-center text-white bg-black bg-opacity-10">
                     <div class="text-center px-4 py-8 rounded-2xl bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-20">
-                        <h1 class="font-fredoka font-bold text-5xl md:text-6xl mb-4 text-white drop-shadow-2xl leading-tight">
+                        <h1 class="font-fredoka font-bold text-6xl mb-4 text-white drop-shadow-2xl leading-tight">
                             <span class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">Explorá</span>
                             <span class="text-accent drop-shadow-lg">nuevos destinos</span>
                         </h1>
-                        <span class="uppercase text-lg md:text-xl font-semibold tracking-wider text-white drop-shadow-lg opacity-90">
+                        <span class="uppercase text-xl font-semibold tracking-wider text-white drop-shadow-lg opacity-90">
                             Tu aventura comienza acá
                         </span>
                     </div>
@@ -59,11 +59,11 @@
                 <img src="<?= base_url('/uploads/pexels-kampus-8623328.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Viajá con confianza">
                 <div class="flex flex-col absolute inset-0 items-center justify-center text-white bg-black bg-opacity-10">
                     <div class="text-center px-4 py-8 rounded-2xl bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-20">
-                        <h1 class="font-fredoka font-bold text-5xl md:text-6xl mb-4 text-white drop-shadow-2xl leading-tight">
+                        <h1 class="font-fredoka font-bold text-6xl mb-4 text-white drop-shadow-2xl leading-tight">
                             <span class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">Viajá con</span>
                             <span class="text-accent drop-shadow-lg">confianza</span>
                         </h1>
-                        <span class="uppercase text-lg md:text-xl font-semibold tracking-wider text-white drop-shadow-lg opacity-90">
+                        <span class="uppercase text-xl font-semibold tracking-wider text-white drop-shadow-lg opacity-90">
                             Experiencias inolvidables te esperan
                         </span>
                     </div>
@@ -78,16 +78,16 @@
         </div>
         <!-- Slider controls -->
         <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+                <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
                 </svg>
                 <span class="sr-only">Previous</span>
             </span>
         </button>
         <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+                <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                 </svg>
                 <span class="sr-only">Next</span>
@@ -143,7 +143,7 @@
         <div class="container mx-auto px-4 max-w-6xl">
             <!-- Encabezado de Paquetes -->
             <div class="text-left mb-12">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 font-fredoka mb-4">
+                <h2 class="text-5xl font-bold text-gray-800 font-fredoka mb-4">
                     Viajes Únicos para<br>
                     Todos los Gustos
                 </h2>
@@ -239,14 +239,14 @@
 
             <div class="mt-16">
                 <div class="text-left mb-12">
-                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 font-fredoka mb-4">
+                    <h2 class="text-5xl font-bold text-gray-800 font-fredoka mb-4">
                         Oportunidades Únicas<br>
                         para Viajar Más por Menos
                     </h2>
                 </div>
 
                 <?php if (!empty($ofertas) && is_array($ofertas)): ?>
-                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div class="grid grid-cols-3 gap-6">
                     <?php foreach ($ofertas as $oferta): ?>
                         <?php 
                             $precioOriginal = $oferta['precio'];
@@ -315,13 +315,13 @@
             <div class="mt-16">
                 <div class="container mx-auto px-4 max-w-6xl">
                     <div class="text-left mb-12">
-                        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 font-fredoka mb-4">
-                            Unite a Cientos de<br>
+                        <h2 class="text-5xl font-bold text-gray-800 font-fredoka mb-4">
+                            Uníte a Cientos de<br>
                             Clientes Satisfechos!
                         </h2>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                    <div class="grid grid-cols-4 gap-6">
                     <div class="bg-white rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col min-h-[280px]">
                         <div class="flex-1">
                             <svg class="w-6 h-6 text-gray-300 mb-4" fill="currentColor" viewBox="0 0 24 24">
@@ -444,11 +444,9 @@
             }
         }
 
-        // Auto-hide toasts after 5 seconds
         document.addEventListener('DOMContentLoaded', function() {
             const toasts = document.querySelectorAll('[id^="toast-"]');
             toasts.forEach(toast => {
-                // Add animation on load
                 toast.style.opacity = '0';
                 toast.style.transform = 'translateX(100%)';
                 toast.style.transition = 'all 0.3s ease';
@@ -458,7 +456,6 @@
                     toast.style.transform = 'translateX(0)';
                 }, 100);
 
-                // Auto hide after 5 seconds
                 setTimeout(() => {
                     closeToast(toast.id);
                 }, 5000);
