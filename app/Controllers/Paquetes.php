@@ -37,21 +37,25 @@ class Paquetes extends BaseController
             $rutaImagen = 'uploads/' . $nombreArchivo;
         }
         
-        $this->paquetesModel->save([
-            'destino' => $destino,
-            'hotel' => $hotel,
-            'transporte' => $transporte,
-            'dias' => $dias,
-            'noches' => $noches,
-            'stock' => $stock,
-            'imagen' => $rutaImagen,
-            'categoria' => $categoria,
-            'precio' => $precio,
-            'descuento' => $descuento,
-            'es_oferta' => $es_oferta,
-            'descripcion' => $descripcion
-        ]);
-        return redirect()->to('auth/admin');
+        try {
+            $this->paquetesModel->save([
+                'destino' => $destino,
+                'hotel' => $hotel,
+                'transporte' => $transporte,
+                'dias' => $dias,
+                'noches' => $noches,
+                'stock' => $stock,
+                'imagen' => $rutaImagen,
+                'categoria' => $categoria,
+                'precio' => $precio,
+                'descuento' => $descuento,
+                'es_oferta' => $es_oferta,
+                'descripcion' => $descripcion
+            ]);
+            return redirect()->to('auth/admin')->with('success', '¡Paquete agregado exitosamente!');
+        } catch (\Exception $e) {
+            return redirect()->to('auth/admin')->with('error', 'Error al agregar el paquete: ' . $e->getMessage());
+        }
     }
     // Procesa el formulario de edición.
     // Actualiza los datos de un paquete existente.
@@ -77,14 +81,22 @@ class Paquetes extends BaseController
             $rutaImagen = 'uploads/' . $nombreArchivo;
         }
         
-        // Actualizar con los nuevos campos
-        $this->paquetesModel->updatePaquete($id, $nuevoDestino, $nuevoHotel, $nuevoTransporte, $nuevosDias, $nuevoNoches, $nuevoStock, $rutaImagen, $categoria, $nuevoPrecio, $nuevoDescuento, $nuevoEsOferta, $nuevoDescripcion);
-        return redirect()->to('auth/admin');
+        try {
+            // Actualizar con los nuevos campos
+            $this->paquetesModel->updatePaquete($id, $nuevoDestino, $nuevoHotel, $nuevoTransporte, $nuevosDias, $nuevoNoches, $nuevoStock, $rutaImagen, $categoria, $nuevoPrecio, $nuevoDescuento, $nuevoEsOferta, $nuevoDescripcion);
+            return redirect()->to('auth/admin')->with('success', '¡Paquete actualizado exitosamente!');
+        } catch (\Exception $e) {
+            return redirect()->to('auth/admin')->with('error', 'Error al actualizar el paquete: ' . $e->getMessage());
+        }
     }
     // Elimina un paquete existente.
     public function delete($id)
     {
-        $this->paquetesModel->deletePaquete($id); // Borra el paquete de la base de datos
-        return redirect()->to('auth/admin');
+        try {
+            $this->paquetesModel->deletePaquete($id); // Borra el paquete de la base de datos
+            return redirect()->to('auth/admin')->with('success', '¡Paquete eliminado exitosamente!');
+        } catch (\Exception $e) {
+            return redirect()->to('auth/admin')->with('error', 'Error al eliminar el paquete: ' . $e->getMessage());
+        }
     }
 }

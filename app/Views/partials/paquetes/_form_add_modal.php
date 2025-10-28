@@ -30,6 +30,7 @@
                             <option value="Ciudad">Ciudad</option>
                             <option value="Safari">Safari</option>
                             <option value="Romántico">Romántico</option>
+                            <option value="Relax">Relax</option>
                         </select>
                     </div>
                 </div>
@@ -48,7 +49,6 @@
                             <option value="Vuelo">Vuelo</option>
                             <option value="Micro">Micro</option>
                             <option value="Crucero">Crucero</option>
-                            <option value="Tren">Tren</option>
                         </select>
                     </div>
                 </div>

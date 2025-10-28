@@ -23,13 +23,15 @@
                         <select id="edit_categoria" name="categoria" required
                             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                             <option value="">Seleccionar categoría</option>
-                            <option value="Aventura">Aventura</option>
-                            <option value="Relax">Relax</option>
-                            <option value="Cultural">Cultural</option>
                             <option value="Familiar">Familiar</option>
+                            <option value="Aventura">Aventura</option>
+                            <option value="Crucero">Crucero</option>
+                            <option value="Playa">Playa</option>
+                            <option value="Montaña">Montaña</option>
+                            <option value="Ciudad">Ciudad</option>
+                            <option value="Safari">Safari</option>
                             <option value="Romántico">Romántico</option>
-                            <option value="Deportivo">Deportivo</option>
-                            <option value="Gastronómico">Gastronómico</option>
+                            <option value="Relax">Relax</option>
                         </select>
                     </div>
                 </div>
@@ -48,7 +50,6 @@
                             <option value="Vuelo">Vuelo</option>
                             <option value="Micro">Micro</option>
                             <option value="Crucero">Crucero</option>
-                            <option value="Tren">Tren</option>
                         </select>
                     </div>
                 </div>

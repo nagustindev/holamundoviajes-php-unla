@@ -59,7 +59,7 @@
                                 
                                 <div class="flex items-center gap-3">
                                     <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-plane text-green-600"></i>
+                                        <i id="modalTransporteIcon" class="fas fa-plane text-green-600"></i>
                                     </div>
                                     <div>
                                         <p class="text-sm text-gray-600">Transporte</p>

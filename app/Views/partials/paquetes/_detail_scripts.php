@@ -24,6 +24,28 @@
         document.getElementById('modalTransporte').textContent = transporte;
         document.getElementById('modalDias').textContent = dias;
         document.getElementById('modalNoches').textContent = noches;
+
+        // Actualizar icono de transporte
+        const transporteIcon = document.getElementById('modalTransporteIcon');
+        if (transporteIcon) {
+            // Limpiar clases de icono anteriores
+            transporteIcon.className = 'fas text-green-600';
+            
+            // Asignar icono según el tipo de transporte
+            switch (transporte.toLowerCase()) {
+                case 'vuelo':
+                    transporteIcon.classList.add('fa-plane');
+                    break;
+                case 'micro':
+                    transporteIcon.classList.add('fa-bus');
+                    break;
+                case 'crucero':
+                    transporteIcon.classList.add('fa-ship');
+                    break;
+                default:
+                    transporteIcon.classList.add('fa-plane'); // Icono por defecto
+            }
+        }
         document.getElementById('modalPrecio').textContent = precio ? ('$' + formatPrice(precio)) : '$-';
         document.getElementById('modalDescripcion').textContent = descripcion;
         document.getElementById('modalImagen').src = imagenUrl || 'https://via.placeholder.com/600x400?text=Sin+imagen';
