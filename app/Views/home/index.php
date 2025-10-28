@@ -97,28 +97,58 @@
 
     <?= view('partials/paquetes/_package_detail_modal') ?>
 
-    <section class="py-8 bg-gray-100 min-h-screen">
-        <!-- Mensajes de éxito/error -->
+    <!-- Toasts Container -->
+    <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-4">
+        <!-- Toast de Éxito -->
         <?php if (session()->getFlashdata('success')): ?>
-            <div class="flex items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50" role="alert">
-                <i class="fa-solid fa-circle-check"></i>
-                <div>
-                    <?= session()->getFlashdata('success') ?>
+            <div id="toast-success" class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow-lg" role="alert">
+                <div class="inline-flex items-center justify-center shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg">
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                    </svg>
+                    <span class="sr-only">Check icon</span>
                 </div>
+                <div class="ms-3 text-sm font-normal"><?= session()->getFlashdata('success') ?></div>
+                <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8" onclick="closeToast('toast-success')" aria-label="Close">
+                    <span class="sr-only">Close</span>
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                </button>
             </div>
         <?php endif; ?>
 
+        <!-- Toast de Error -->
         <?php if (session()->getFlashdata('error')): ?>
-            <div class=" flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50" role="alert">
-                <i class="fa-solid fa-circle-exclamation"></i>
-                <div>
-                    <?= session()->getFlashdata('error') ?>
+            <div id="toast-danger" class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow-lg" role="alert">
+                <div class="inline-flex items-center justify-center shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg">
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z"/>
+                    </svg>
+                    <span class="sr-only">Error icon</span>
                 </div>
+                <div class="ms-3 text-sm font-normal"><?= session()->getFlashdata('error') ?></div>
+                <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8" onclick="closeToast('toast-danger')" aria-label="Close">
+                    <span class="sr-only">Close</span>
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                </button>
             </div>
         <?php endif; ?>
+    </div>
+
+    <section class="py-8 bg-gray-100 min-h-screen">
 
         <div class="container mx-auto px-4 max-w-6xl">
-            <h2 class="text-gray-800 font-bold text-3xl font-[Fredoka] mb-8">Paquetes turísticos para todos los gustos</h2>
+            <!-- Encabezado de Paquetes -->
+            <div class="text-left mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 font-fredoka mb-4">
+                    Viajes Únicos para<br>
+                    Todos los Gustos
+                </h2>
+            </div>
+            
             <?php if (!empty($paquetes) && is_array($paquetes)): ?>
                 <div class="grid grid-cols-2 gap-6">
                     <?php foreach ($paquetes as $p): ?>
@@ -208,13 +238,11 @@
             <?php endif; ?>
 
             <div class="mt-16">
-                <div class="text-center mb-12">
+                <div class="text-left mb-12">
                     <h2 class="text-4xl md:text-5xl font-bold text-gray-800 font-fredoka mb-4">
-                        Ofertas Especiales
+                        Oportunidades Únicas<br>
+                        para Viajar Más por Menos
                     </h2>
-                    <p class="text-xl text-gray-600">
-                        Aprovechá estas oportunidades únicas para viajar más por menos
-                    </p>
                 </div>
 
                 <?php if (!empty($ofertas) && is_array($ofertas)): ?>
@@ -286,15 +314,11 @@
 
             <div class="mt-16">
                 <div class="container mx-auto px-4 max-w-6xl">
-                    <div class="text-center mb-12">
-                        <p class="text-primary text-sm font-semibold uppercase tracking-wider mb-2">TESTIMONIOS</p>
+                    <div class="text-left mb-12">
                         <h2 class="text-4xl md:text-5xl font-bold text-gray-800 font-fredoka mb-4">
                             Unite a Cientos de<br>
                             Clientes Satisfechos!
                         </h2>
-                        <p class="text-gray-600 text-xl">
-                            Miles de viajeros eligieron HolaMundo Viajes para crear recuerdos inolvidables.
-                        </p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
@@ -406,6 +430,41 @@
 
     <!-- Flowbite JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
+
+    <!-- Toast Scripts -->
+    <script>
+        function closeToast(toastId) {
+            const toast = document.getElementById(toastId);
+            if (toast) {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }
+        }
+
+        // Auto-hide toasts after 5 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            const toasts = document.querySelectorAll('[id^="toast-"]');
+            toasts.forEach(toast => {
+                // Add animation on load
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(100%)';
+                toast.style.transition = 'all 0.3s ease';
+                
+                setTimeout(() => {
+                    toast.style.opacity = '1';
+                    toast.style.transform = 'translateX(0)';
+                }, 100);
+
+                // Auto hide after 5 seconds
+                setTimeout(() => {
+                    closeToast(toast.id);
+                }, 5000);
+            });
+        });
+    </script>
 
     <?= view('partials/paquetes/_detail_scripts') ?>
 </body>
