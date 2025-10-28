@@ -1,5 +1,7 @@
 <script>
     let precioUnitario = 0;
+    let descuentoPorcentaje = 0;
+    let esOferta = false;
 
     function openBuyModal(btn) {
         const modal = document.getElementById('buyModal');
@@ -14,9 +16,15 @@
         const precio = btn.dataset.precio || '-';
         const imagenUrl = btn.dataset.imagenUrl || '';
         const descripcion = btn.dataset.descripcion || 'Sin descripción disponible';
+        
+        // Obtener datos de descuento
+        const descuento = parseInt(btn.dataset.descuento || '0', 10);
+        const oferta = btn.dataset.esOferta === '1' || btn.dataset.esOferta === 'true';
 
-        // Guardar precio unitario para cálculos
+        // Guardar datos para cálculos
         precioUnitario = parseFloat(precio) || 0;
+        descuentoPorcentaje = descuento;
+        esOferta = oferta && descuento > 0;
 
         document.getElementById('modalDestino').textContent = destino;
         document.getElementById('modalCategoria').textContent = categoria;
@@ -46,7 +54,7 @@
                     transporteIcon.classList.add('fa-plane'); // Icono por defecto
             }
         }
-        document.getElementById('modalPrecio').textContent = precio ? ('$' + formatPrice(precio)) : '$-';
+        // El precio inicial se actualiza en updateTotal() considerando descuentos
         document.getElementById('modalDescripcion').textContent = descripcion;
         document.getElementById('modalImagen').src = imagenUrl || 'https://via.placeholder.com/600x400?text=Sin+imagen';
         document.getElementById('modalImagen').alt = destino ? ('Imagen de ' + destino) : 'Imagen del destino';
@@ -54,11 +62,6 @@
         // Resetear cantidad a 1
         document.getElementById('cantidadPersonas').value = 1;
         updateTotal();
-
-        // RUTA LINK (IMPLEMENTAR)
-        const base = modal.getAttribute('data-comprar-base') || '#';
-        const buyLink = document.getElementById('modalComprarLink');
-        buyLink.href = id ? (base + id) : '#';
 
         // Mostrar modal sin animaciones problemáticas
         modal.classList.remove('hidden');
@@ -108,16 +111,33 @@
 
     function updateTotal() {
         const cantidad = parseInt(document.getElementById('cantidadPersonas').value);
-        const total = precioUnitario * cantidad;
-        document.getElementById('totalPrecio').textContent = '$' + formatPrice(total);
+        const totalSinDescuento = precioUnitario * cantidad;
         
-        // Actualizar el enlace de compra con la cantidad
-        const buyLink = document.getElementById('modalComprarLink');
-        const currentHref = buyLink.href.split('?')[0]; // Remover parámetros existentes
-        buyLink.href = currentHref + '?cantidad=' + cantidad;
-        
-        // Debug: console log para verificar el enlace
-        console.log('Enlace actualizado:', buyLink.href);
+        // Manejar descuento si es oferta
+        const infoDescuento = document.getElementById('infoDescuento');
+        if (esOferta && descuentoPorcentaje > 0) {
+            const descuentoAmount = totalSinDescuento * (descuentoPorcentaje / 100);
+            const totalConDescuento = totalSinDescuento - descuentoAmount;
+            const precioUnitarioConDescuento = precioUnitario - (precioUnitario * (descuentoPorcentaje / 100));
+            
+            // Actualizar el precio destacado (por persona) con descuento
+            document.getElementById('modalPrecio').textContent = '$' + formatPrice(precioUnitarioConDescuento);
+            
+            // El total principal muestra el precio con descuento
+            document.getElementById('totalPrecio').textContent = '$' + formatPrice(totalConDescuento);
+            
+            // Mostrar información de descuento
+            infoDescuento.classList.remove('hidden');
+            document.getElementById('precioAnterior').textContent = '$' + formatPrice(totalSinDescuento);
+            document.getElementById('porcentajeDescuento').textContent = descuentoPorcentaje;
+            document.getElementById('ahorroTotal').textContent = '$' + formatPrice(descuentoAmount);
+        } else {
+            // Sin descuento, mostrar precio normal
+            document.getElementById('modalPrecio').textContent = '$' + formatPrice(precioUnitario);
+            document.getElementById('totalPrecio').textContent = '$' + formatPrice(totalSinDescuento);
+            // Ocultar información de descuento
+            infoDescuento.classList.add('hidden');
+        }
     }
 
     function formatPrice(price) {

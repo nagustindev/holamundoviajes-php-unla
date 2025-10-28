@@ -16,15 +16,11 @@
             </a>
 
             <?php if (session()->get('user_id')): ?>
-                <!-- Usuario logueado -->
-
                 <button class="flex items-center gap-2 hover:bg-white/10 px-3 py-2 rounded-lg transition-colors" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start">
                     <i class="fa-solid fa-user cursor-pointer" type="button" ></i>
                     <span>Perfil</span>
                 </button>
 
-
-                <!-- Dropdown menu -->
                 <div id="userDropdown" class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44">
                     <div class="px-4 py-3 text-sm text-gray-900">
                         <div class="font-medium">¡Hola!</div>
@@ -54,7 +50,6 @@
                     </div>
                 </div>
             <?php else: ?>
-                <!-- Usuario no logueado -->
                 <a href="<?= base_url('auth/login') ?>" class="flex items-center gap-2 hover:bg-white/10 px-3 py-2 rounded-lg transition-colors">
                     <i class="fa-solid fa-user"></i>
                     <span>Iniciar Sesión</span>
@@ -71,8 +66,8 @@
                     <?php
                     $request = \Config\Services::request();
                     $uri = $request->getUri();
-                    $segment = $uri->getSegment(1); // Obtener el primer segmento de la URL
-                    $isHome = empty($segment); // Si no hay segmento, estamos en home
+                    $segment = $uri->getSegment(1);
+                    $isHome = empty($segment);
                     $homeClasses = $isHome ? 'flex items-center gap-2 bg-white/20 px-3 py-2 rounded-lg' : 'flex items-center gap-2 hover:bg-white/10 px-3 py-2 rounded-lg transition-colors';
                     ?>
                     <a href="<?= base_url('') ?>" class="<?= $homeClasses ?>" <?= $isHome ? 'aria-current="page"' : '' ?>>

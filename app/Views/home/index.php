@@ -22,9 +22,7 @@
 
 
     <div id="default-carousel" class="relative w-full" data-carousel="slide">
-        <!-- Carousel wrapper -->
         <div class="relative h-96 overflow-hidden">
-            <!-- Item 1 -->
             <div class="duration-300 ease-in-out" data-carousel-item="active">
                 <img src="<?= base_url('/uploads/pexels-dreamlensproduction-2450296.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="HolaMundo Viajes">
                 <div class="flex flex-col absolute inset-0 items-center justify-center text-white bg-black bg-opacity-25">
@@ -39,7 +37,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Item 2 -->
             <div class="hidden duration-300 ease-in-out" data-carousel-item>
                 <img src="<?= base_url('/uploads/pexels-john-tekeridis-21837-28505400.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Explorá nuevos destinos">
                 <div class="flex flex-col absolute inset-0 items-center justify-center text-white bg-black bg-opacity-10">
@@ -54,7 +51,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Item 3 -->
             <div class="hidden duration-300 ease-in-out" data-carousel-item>
                 <img src="<?= base_url('/uploads/pexels-kampus-8623328.jpg') ?>" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Viajá con confianza">
                 <div class="flex flex-col absolute inset-0 items-center justify-center text-white bg-black bg-opacity-10">
@@ -70,13 +66,11 @@
                 </div>
             </div>
         </div>
-        <!-- Slider indicators -->
         <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
             <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
             <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
             <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
         </div>
-        <!-- Slider controls -->
         <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
             <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
                 <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -129,7 +123,6 @@
     <section class="py-8 bg-gray-100 min-h-screen">
 
         <div class="container mx-auto px-4 max-w-6xl">
-            <!-- Encabezado de Paquetes -->
             <div class="text-left mb-12">
                 <h2 class="text-5xl font-bold text-gray-800 font-fredoka mb-4">
                     Viajes Únicos para<br>
@@ -159,7 +152,9 @@
                                 data-precio="<?= esc($p['precio'] ?? '') ?>"
                                 data-imagen="<?= esc($p['imagen'] ?? '') ?>"
                                 data-imagen-url="<?= !empty($p['imagen']) ? base_url($p['imagen']) : '' ?>"
-                                data-descripcion="<?= esc($p['descripcion'] ?? '') ?>">
+                                data-descripcion="<?= esc($p['descripcion'] ?? '') ?>"
+                                data-descuento="<?= esc($p['descuento'] ?? '0') ?>"
+                                data-es-oferta="<?= isset($p['es_oferta']) && $p['es_oferta'] ? '1' : '0' ?>">
                                 <div class="w-52 flex-shrink-0 bg-gray-100">
                                     <?php if (!empty($p['imagen'])): ?>
                                         <img src="<?= base_url($p['imagen']) ?>" alt="<?= esc($p['destino']) ?>" class="block w-full h-full object-cover" />
@@ -236,7 +231,7 @@
                 <?php if (!empty($ofertas) && is_array($ofertas)): ?>
                 <div class="grid grid-cols-3 gap-6">
                     <?php foreach ($ofertas as $oferta): ?>
-                        <?php 
+                        <?php
                             $precioOriginal = $oferta['precio'];
                             $precioConDescuento = $precioOriginal - ($precioOriginal * $oferta['descuento'] / 100);
                         ?>
@@ -253,10 +248,12 @@
                              data-dias="<?= esc($oferta['dias'] ?? '') ?>"
                              data-noches="<?= esc($oferta['noches'] ?? '') ?>"
                              data-stock="<?= esc($oferta['stock'] ?? '') ?>"
-                             data-precio="<?= esc($precioConDescuento) ?>"
+                             data-precio="<?= esc($precioOriginal) ?>"
                              data-imagen="<?= esc($oferta['imagen'] ?? '') ?>"
                              data-imagen-url="<?= !empty($oferta['imagen']) ? base_url($oferta['imagen']) : '' ?>"
-                             data-descripcion="<?= esc($oferta['descripcion'] ?? '') ?>">
+                             data-descripcion="<?= esc($oferta['descripcion'] ?? '') ?>"
+                             data-descuento="<?= esc($oferta['descuento'] ?? '0') ?>"
+                             data-es-oferta="1">
                             
                             <div class="aspect-[4/3] overflow-hidden relative">
                                 <?php if (!empty($oferta['imagen'])): ?>
@@ -433,7 +430,6 @@
                     toast.style.transform = 'translateX(0)';
                 }, 100);
 
-                // Auto-close después de 5 segundos
                 setTimeout(() => {
                     toast.style.opacity = '0';
                     toast.style.transform = 'translateX(100%)';

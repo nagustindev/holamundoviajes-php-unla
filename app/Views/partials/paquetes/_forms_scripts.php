@@ -225,7 +225,7 @@
         const input = document.getElementById('edit_imagen');
         
         if (imagen && hint && img) {
-            // base_url() viene desde PHP y devuelve, por ejemplo, "http://localhost/holamundo_tp/public/"
+            // base_url() viene desde PHP y devuelve "http://localhost/holamundo_tp/public/"
             img.src = '<?= base_url() ?>' + imagen; // Se concatena para formar la URL completa de la imagen
             img.classList.remove('hidden');
             hint.classList.add('hidden');

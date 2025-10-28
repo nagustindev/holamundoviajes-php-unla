@@ -52,7 +52,6 @@
 
     <?= view('partials/_nav') ?>
 
-    <!-- Encabezado -->
     <div class="bg-white shadow-sm border-b">
         <div class="container mx-auto px-4 py-6">
             <div class="flex items-center justify-between">
@@ -108,7 +107,6 @@
         </div>
     </div>
 
-    <!-- Modales (parciales) -->
     <?= view('partials/paquetes/_form_add_modal') ?>
     <section class="py-8 bg-gray-100 min-h-screen">
         <?php if (!empty($paquetes) && is_array($paquetes)): ?>
@@ -149,7 +147,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Descripción -->
                                 <?php if (!empty($p['descripcion'])): ?>
                                     <div class="mb-3 flex-shrink-0">
                                         <div class="bg-gray-50 rounded-lg p-3">
@@ -157,7 +154,7 @@
                                                 <h4 class="text-xs font-semibold text-gray-700 uppercase tracking-wider">
                                                     <i class="fas fa-align-left mr-1"></i>Descripción
                                                 </h4>
-                                                <button type="button" 
+                                                <button type="button"
                                                         class="text-xs text-blue-600 hover:text-blue-800 font-medium"
                                                         onclick="toggleDescription(<?= $p['id'] ?>)">
                                                     <span id="toggle-text-<?= $p['id'] ?>">Ver más</span>
@@ -190,7 +187,7 @@
                                 <div class="mt-auto min-h-0">
                                     <div class="flex items-center gap-2">
                                         <?php if (isset($p['es_oferta']) && $p['es_oferta'] && $p['descuento'] > 0): ?>
-                                            <?php 
+                                            <?php
                                                 $precioOriginal = $p['precio'];
                                                 $precioConDescuento = $precioOriginal - ($precioOriginal * $p['descuento'] / 100);
                                             ?>
@@ -248,14 +245,12 @@
             const toggleIcon = document.getElementById(`toggle-icon-${packageId}`);
             
             if (fullDescription.classList.contains('hidden')) {
-                // Mostrar descripción completa
                 fullDescription.classList.remove('hidden');
                 previewDescription.classList.add('hidden');
                 toggleText.textContent = 'Ver menos';
                 toggleIcon.classList.remove('fa-chevron-down');
                 toggleIcon.classList.add('fa-chevron-up');
             } else {
-                // Mostrar preview
                 fullDescription.classList.add('hidden');
                 previewDescription.classList.remove('hidden');
                 toggleText.textContent = 'Ver más';
@@ -277,7 +272,6 @@
                     toast.style.transform = 'translateX(0)';
                 }, 100);
 
-                // Auto-close después de 5 segundos
                 setTimeout(() => {
                     toast.style.opacity = '0';
                     toast.style.transform = 'translateX(100%)';

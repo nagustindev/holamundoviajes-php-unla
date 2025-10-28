@@ -36,7 +36,6 @@
         </div>
         <div class="flex flex-col max-w-7xl mx-auto p-1 gap-6">
             <div id="accordion-flush" data-accordion="collapse" data-active-classes="text-gray-900" data-inactive-classes="text-gray-500">
-                <!-- Primer accordion item -->
                 <div class="bg-white rounded-xl mb-2">
                     <h2 id="accordion-flush-heading-1">
                         <button type="button" class="flex items-center justify-between w-full py-5 px-5 font-bold" data-accordion-target="#accordion-flush-body-1" aria-expanded="true" aria-controls="accordion-flush-body-1">
@@ -50,8 +49,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Segundo accordion item -->
                 <div class="bg-white rounded-xl mb-2">
                     <h2 id="accordion-flush-heading-2">
                         <button type="button" class="flex items-center justify-between w-full py-5 px-5 font-bold" data-accordion-target="#accordion-flush-body-2" aria-expanded="false" aria-controls="accordion-flush-body-2">
@@ -65,8 +62,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Tercer accordion item -->
                 <div class="bg-white rounded-xl mb-2">
                     <h2 id="accordion-flush-heading-3">
                         <button type="button" class="flex items-center justify-between w-full py-5 px-5 font-bold" data-accordion-target="#accordion-flush-body-3" aria-expanded="false" aria-controls="accordion-flush-body-3">
@@ -80,7 +75,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Cuarto accordion item -->
                 <div class="bg-white rounded-xl mb-2">
                     <h2 id="accordion-flush-heading-4">
                         <button type="button" class="flex items-center justify-between w-full py-5 px-5 font-bold" data-accordion-target="#accordion-flush-body-4" aria-expanded="false" aria-controls="accordion-flush-body-4">
@@ -114,7 +108,6 @@
                         </div>
                     </div>
                 </div>
-                  <!-- Quinto accordion item -->
                 <div class="bg-white rounded-xl mb-2">
                     <h2 id="accordion-flush-heading-5">
                         <button type="button" class="flex items-center justify-between w-full py-5 px-5 font-bold" data-accordion-target="#accordion-flush-body-5" aria-expanded="false" aria-controls="accordion-flush-body-5">

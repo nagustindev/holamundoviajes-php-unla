@@ -1,4 +1,4 @@
-<?php /* Modal: Agregar Paquete */ ?>
+<?php ?>
 <div id="formContainer" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
     <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
         <div class="p-6 border-b border-gray-200">
@@ -78,12 +78,11 @@
 
                 <div>
                     <label for="add_descripcion" class="block text-sm font-medium text-gray-700 mb-2">Descripción</label>
-                    <textarea id="add_descripcion" name="descripcion" rows="4" 
+                    <textarea id="add_descripcion" name="descripcion" rows="4"
                         class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                         placeholder="Describa los detalles del paquete turístico..."></textarea>
                 </div>
 
-                <!-- Sección de Ofertas -->
                 <div class="border-t pt-6">
                     <h3 class="text-lg font-medium text-gray-900 mb-4 font-fredoka">Configuración de Oferta</h3>
                     <div class="grid grid-cols-2 gap-6">

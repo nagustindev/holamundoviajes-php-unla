@@ -71,16 +71,13 @@
             </div>
         </div>
 
-        <!-- Table Card -->
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-            <!-- Table Header -->
             <div class="px-6 py-4 border-b border-gray-200 bg-gray-50">
                 <div class="flex items-center justify-between">
                     <h3 class="text-lg font-semibold text-gray-900">Lista de Ventas</h3>
                 </div>
             </div>
 
-            <!-- Table -->
             <div class="overflow-x-auto">
                 <table class="w-full">
                     <thead class="bg-gray-50 border-b border-gray-200">
