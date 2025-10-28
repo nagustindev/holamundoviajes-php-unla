@@ -7,7 +7,7 @@
                     <span class="self-center text-2xl font-semibold whitespace-nowrap font-fredoka">HolaMundo Viajes</span>
                 </a>
             </div>
-            <div class="grid gap-4 grid-cols-3">
+            <div class="grid gap-4 grid-cols-2">
                 <div>
                     <h2 class="mb-4 text-sm font-semibold text-gray-900 uppercase">HolaMundo</h2>
                     <ul class="text-gray-500 font-medium">
@@ -39,17 +39,6 @@
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <h2 class="mb-4 text-sm font-semibold text-gray-900 uppercase ">Legales</h2>
-                    <ul class="text-gray-500 font-medium">
-                        <li class="mb-2">
-                            <a href="https://servicios.infoleg.gob.ar/infolegInternet/anexos/0-4999/638/texact.htm" class="hover:underline" target="_blank">Ley 24.240</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:underline">Términos y Condiciones</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
         <hr class="my-6 border-gray-200 mx-auto" />
@@ -59,10 +48,10 @@
             <div class="flex mt-0 justify-center items-center gap-2 text-sm text-gray-500 text-center">
                 <span>Seminario de Lenguajes PHP</span>
                 <span>-</span>
-                <a href="https://www.unla.edu.ar/">
+                <a href="https://www.unla.edu.ar/" target="_blank">
                     <span class="hover:underline">Universidad Nacional de Lanús</span>
                 </a>
-                <a href="https://www.unla.edu.ar/">
+                <a href="https://www.unla.edu.ar/" target="_blank">
                     <img src="<?= base_url('uploads/logo_Unla.svg') ?>" alt="Logo UNLA" class="size-12">
                 </a>
             </div>
