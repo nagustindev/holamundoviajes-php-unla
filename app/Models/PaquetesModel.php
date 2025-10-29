@@ -101,10 +101,10 @@ class PaquetesModel extends Model
 
         $db = \Config\Database::connect();
         $masVendidoQuery = $db->query("
-            SELECT id_paquete, SUM(cantidad) as total_vendido 
-            FROM ventas 
-            GROUP BY id_paquete 
-            ORDER BY total_vendido DESC 
+            SELECT id_paquete, SUM(cantidad) as total_vendido
+            FROM ventas
+            GROUP BY id_paquete
+            ORDER BY total_vendido DESC
             LIMIT 1
         ");
         $masVendido = $masVendidoQuery->getRow();

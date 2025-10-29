@@ -16,7 +16,7 @@
         const precio = btn.dataset.precio || '-';
         const imagenUrl = btn.dataset.imagenUrl || '';
         const descripcion = btn.dataset.descripcion || 'Sin descripción disponible';
-        
+
         // Obtener datos de descuento
         const descuento = parseInt(btn.dataset.descuento || '0', 10);
         const oferta = btn.dataset.esOferta === '1' || btn.dataset.esOferta === 'true';
@@ -38,7 +38,7 @@
         if (transporteIcon) {
             // Limpiar clases de icono anteriores
             transporteIcon.className = 'fas text-green-600';
-            
+
             // Asignar icono según el tipo de transporte
             switch (transporte.toLowerCase()) {
                 case 'vuelo':
@@ -54,6 +54,12 @@
                     transporteIcon.classList.add('fa-plane'); // Icono por defecto
             }
         }
+
+        // RUTA LINK COMPRA
+        const base = modal.getAttribute('data-comprar-base') || '#';
+        const buyLink = document.getElementById('modalComprarLink');
+        buyLink.href = id ? (base + id) : '#';
+
         // El precio inicial se actualiza en updateTotal() considerando descuentos
         document.getElementById('modalDescripcion').textContent = descripcion;
         document.getElementById('modalImagen').src = imagenUrl || 'https://via.placeholder.com/600x400?text=Sin+imagen';
@@ -81,11 +87,11 @@
     function closeBuyModal() {
         console.log('Cerrando modal...'); // Debug
         const modal = document.getElementById('buyModal');
-        
+
         // Ocultar modal y restaurar scroll inmediatamente
         modal.classList.add('hidden');
         document.body.style.overflow = ''; // Restaurar scroll del body
-        
+
         document.removeEventListener('keydown', escCloser);
     }
 
@@ -112,20 +118,27 @@
     function updateTotal() {
         const cantidad = parseInt(document.getElementById('cantidadPersonas').value);
         const totalSinDescuento = precioUnitario * cantidad;
-        
+        // Actualizar el enlace de compra con la cantidad
+        const buyLink = document.getElementById('modalComprarLink');
+        const currentHref = buyLink.href.split('?')[0]; // Remover parámetros existentes
+        buyLink.href = currentHref + '?cantidad=' + cantidad;
+
+        // Debug: console log para verificar el enlace
+        console.log('Enlace actualizado:', buyLink.href);
+
         // Manejar descuento si es oferta
         const infoDescuento = document.getElementById('infoDescuento');
         if (esOferta && descuentoPorcentaje > 0) {
             const descuentoAmount = totalSinDescuento * (descuentoPorcentaje / 100);
             const totalConDescuento = totalSinDescuento - descuentoAmount;
             const precioUnitarioConDescuento = precioUnitario - (precioUnitario * (descuentoPorcentaje / 100));
-            
+
             // Actualizar el precio destacado (por persona) con descuento
             document.getElementById('modalPrecio').textContent = '$' + formatPrice(precioUnitarioConDescuento);
-            
+
             // El total principal muestra el precio con descuento
             document.getElementById('totalPrecio').textContent = '$' + formatPrice(totalConDescuento);
-            
+
             // Mostrar información de descuento
             infoDescuento.classList.remove('hidden');
             document.getElementById('precioAnterior').textContent = '$' + formatPrice(totalSinDescuento);
