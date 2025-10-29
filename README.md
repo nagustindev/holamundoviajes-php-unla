@@ -13,7 +13,8 @@ Este proyecto incluye dos roles principales (Usuario y Administrador) con las si
     * Interactuar con las vistas de ayuda e información de la página.
 * **Panel de Administrador:**
     * **Gestión de Paquetes (CRUD):** Crear, leer, actualizar y eliminar paquetes de viaje.
-    * **Gestión de Usuarios (CRUD):** Leer perfiles de usuario.
+    * **Gestión de Usuarios:** Ver ventas realizadas.
+    * **Gestión de Usuarios:** Leer perfiles de usuario.
 
 ---
 
