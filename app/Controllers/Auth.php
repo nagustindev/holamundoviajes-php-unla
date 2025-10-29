@@ -44,10 +44,10 @@ class Auth extends BaseController
             return view('auth/login', ['error' => 'Contraseña inválida']);
         }
 
-    // Guardar sesión (incluye email para mostrar en vistas)
-    $this->session->set('user_id', $user['id']);
-    $this->session->set('tipo_usuario', $user['tipo_usuario']);
-    $this->session->set('email', $user['email']);
+        // Guardar sesión
+        $this->session->set('user_id', $user['id']);
+        $this->session->set('tipo_usuario', $user['tipo_usuario']);
+        $this->session->set('email', $user['email']);
 
         // Redirigir según tipo de usuario
         if ($user['tipo_usuario'] === 'admin') {
@@ -70,12 +70,12 @@ class Auth extends BaseController
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('contraseña');
 
-        // Validar usuario existente
+        // Verifica email único
         if ($this->authModel->getByEmail($email)) {
             return view('auth/register', ['error' => 'El email ya está registrado']);
         }
 
-        // Hashear la contraseña (para mas seguridad)
+        // Hashear la contraseña
         $hash = password_hash($password, PASSWORD_DEFAULT);
 
         // Guardar nuevo usuario
@@ -95,7 +95,6 @@ class Auth extends BaseController
         // Cargamos los paquetes para mostrarlos directamente en el panel admin.
         $paquetesModel = new PaquetesModel();
         $data['paquetes'] = $paquetesModel->getPaquetes();
-        $data['email'] = $this->session->get('email');
 
         return view('auth/admin', $data);
     }

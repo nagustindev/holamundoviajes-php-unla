@@ -30,13 +30,13 @@ class Paquetes extends BaseController
         $imagen = $this->request->getFile('imagen');
         $rutaImagen = null;
         $categoria = $this->request->getPost('categoria');
-        
+
         if ($imagen && $imagen->isValid() && !$imagen->hasMoved()) {
             $nombreArchivo = $imagen->getRandomName();
             $imagen->move(ROOTPATH . 'public/uploads', $nombreArchivo);
             $rutaImagen = 'uploads/' . $nombreArchivo;
         }
-        
+
         try {
             $this->paquetesModel->save([
                 'destino' => $destino,
@@ -74,13 +74,13 @@ class Paquetes extends BaseController
         $nuevoDescripcion = $this->request->getPost('descripcion') ?? '';
         $rutaImagen = null;
         $categoria = $this->request->getPost('categoria');
-        
+
         if ($nuevoImagen && $nuevoImagen->isValid() && !$nuevoImagen->hasMoved()) {
             $nombreArchivo = $nuevoImagen->getRandomName();
             $nuevoImagen->move(ROOTPATH . 'public/uploads', $nombreArchivo);
             $rutaImagen = 'uploads/' . $nombreArchivo;
         }
-        
+
         try {
             // Actualizar con los nuevos campos
             $this->paquetesModel->updatePaquete($id, $nuevoDestino, $nuevoHotel, $nuevoTransporte, $nuevosDias, $nuevoNoches, $nuevoStock, $rutaImagen, $categoria, $nuevoPrecio, $nuevoDescuento, $nuevoEsOferta, $nuevoDescripcion);

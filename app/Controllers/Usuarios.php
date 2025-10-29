@@ -9,7 +9,7 @@ class Usuarios extends BaseController
 {
     protected $usuariosModel;
     protected $ventasModel;
-    
+
     public function __construct()
     {
         // Instancia el modelo para interactuar con la base de datos
@@ -28,10 +28,10 @@ class Usuarios extends BaseController
     {
         // Obtener el ID del usuario de la sesión
         $userId = session()->get('user_id');
-        
+
         // Obtener los viajes del usuario usando VentasModel
         $data['viajes'] = $this->ventasModel->getViajesUsuario($userId);
-        
+
         return view('usuarios/mis_viajes', $data);
     }
 }

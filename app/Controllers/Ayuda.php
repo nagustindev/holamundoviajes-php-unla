@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class Ayuda extends BaseController
 {
-    
+
     public function ayuda(): string
     {
         return view('ayuda/ayuda');
