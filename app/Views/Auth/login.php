@@ -38,21 +38,35 @@
 
       <form action="<?= base_url('auth/valida_login') ?>" method="post">
         <?= csrf_field() ?>
+        
+        <?php if (isset($error) && $error): ?>
+          <p class="text-red-600 mb-4"><?= esc($error) ?></p>
+        <?php endif; ?>
+        
+        <?php if (session()->getFlashdata('success')): ?>
+          <p class="text-green-600 mb-4"><?= esc(session()->getFlashdata('success')) ?></p>
+        <?php endif; ?>
+        
         <div class="mt-6">
           <input
             placeholder="Email"
-            type="text"
+            type="email"
             name="email"
-            class="p-2 px-3 border-b-[2px] focus:border-blue-400 w-full outline-none bg-white transition duration-300" />
+            value="<?= old('email') ?>"
+            class="p-2 px-3 border-b-[2px] focus:border-blue-400 w-full outline-none bg-white transition duration-300 <?= (isset($validation) && $validation->hasError('email')) ? 'border-red-400' : '' ?>" />
+          <?php if (isset($validation) && $validation->hasError('email')): ?>
+            <p class="text-red-600 text-sm mt-1"><?= $validation->getError('email') ?></p>
+          <?php endif; ?>
+          
           <input
             placeholder="Contraseña"
             type="password"
             name="contraseña"
-            class="p-2 px-3 mt-3 border-b-[2px] focus:border-blue-400 w-full outline-none bg-white transition duration-300" />
+            class="p-2 px-3 mt-3 border-b-[2px] focus:border-blue-400 w-full outline-none bg-white transition duration-300 <?= (isset($validation) && $validation->hasError('contraseña')) ? 'border-red-400' : '' ?>" />
+          <?php if (isset($validation) && $validation->hasError('contraseña')): ?>
+            <p class="text-red-600 text-sm mt-1"><?= $validation->getError('contraseña') ?></p>
+          <?php endif; ?>
         </div>
-        <?php if (isset($error) && $error): ?>
-          <p class="text-red-600"><?= esc($error) ?></p>
-        <?php endif; ?>
 
         <button
           type="submit"

@@ -27,7 +27,31 @@ class Auth extends BaseController
     // Procesar login
     public function valida_login()
     {
-        // Obtener datos del formulario
+        // Reglas de validación
+        $rules = [
+            'email' => [
+                'rules' => 'required|valid_email',
+                'errors' => [
+                    'required' => 'El email es obligatorio',
+                    'valid_email' => 'Debe ser un email válido'
+                ]
+            ],
+            'contraseña' => [
+                'rules' => 'required|min_length[1]',
+                'errors' => [
+                    'required' => 'La contraseña es obligatoria',
+                    'min_length' => 'La contraseña no puede estar vacía'
+                ]
+            ]
+        ];
+
+        // Validar datos
+        if (!$this->validate($rules)) {
+            $data['validation'] = $this->validator;
+            return view('auth/login', $data);
+        }
+
+        // Obtener datos validados
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('contraseña');
 
@@ -66,14 +90,34 @@ class Auth extends BaseController
     // Procesar registro
     public function register_post()
     {
-        // Obtener datos del formulario
+        // Reglas de validación
+        $rules = [
+            'email' => [
+                'rules' => 'required|valid_email|is_unique[usuarios.email]',
+                'errors' => [
+                    'required' => 'El email es obligatorio',
+                    'valid_email' => 'Debe ser un email válido',
+                    'is_unique' => 'Este email ya está registrado'
+                ]
+            ],
+            'contraseña' => [
+                'rules' => 'required|min_length[6]',
+                'errors' => [
+                    'required' => 'La contraseña es obligatoria',
+                    'min_length' => 'La contraseña debe tener al menos 6 caracteres'
+                ]
+            ]
+        ];
+
+        // Validar datos
+        if (!$this->validate($rules)) {
+            $data['validation'] = $this->validator;
+            return view('auth/register', $data);
+        }
+
+        // Obtener datos validados
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('contraseña');
-
-        // Verifica email único
-        if ($this->authModel->getByEmail($email)) {
-            return view('auth/register', ['error' => 'El email ya está registrado']);
-        }
 
         // Hashear la contraseña
         $hash = password_hash($password, PASSWORD_DEFAULT);
@@ -85,8 +129,9 @@ class Auth extends BaseController
             'tipo_usuario' => 'cliente'
         ]);
 
-        // Redirigir a la página de login
-        return redirect()->to('/auth/login');
+        // Redirigir con mensaje de éxito
+        return redirect()->to('/auth/login')
+                        ->with('success', 'Registro exitoso. Ya puedes iniciar sesión');
     }
 
     public function admin()

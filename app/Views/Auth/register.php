@@ -18,8 +18,9 @@
   <section class="min-h-screen flex flex-col items-center justify-center bg-gray-100 py-8 px-4">
     <div class="border border-gray-100 shadow w-full max-w-sm p-8 rounded-md bg-white">
       <?php if (isset($error) && $error): ?>
-        <p class="text-red-600"><?= esc($error) ?></p>
+        <p class="text-red-600 mb-4"><?= esc($error) ?></p>
       <?php endif; ?>
+      
       <div class="flex justify-between text-sm">
         <div class="flex items-center gap-2">
           <a class="flex items-center gap-2" href="<?= base_url() ?>">
@@ -45,12 +46,20 @@
             placeholder="Email"
             type="email"
             name="email"
-            class="p-2 px-3 border-b-[2px] focus:border-blue-400 w-full outline-none bg-white transition duration-300" />
+            value="<?= old('email') ?>"
+            class="p-2 px-3 border-b-[2px] focus:border-blue-400 w-full outline-none bg-white transition duration-300 <?= (isset($validation) && $validation->hasError('email')) ? 'border-red-400' : '' ?>" />
+          <?php if (isset($validation) && $validation->hasError('email')): ?>
+            <p class="text-red-600 text-sm mt-1"><?= $validation->getError('email') ?></p>
+          <?php endif; ?>
+          
           <input
             placeholder="Contraseña"
             type="password"
             name="contraseña"
-            class="p-2 px-3 mt-3 border-b-[2px] focus:border-blue-400 w-full outline-none bg-white transition duration-300" />
+            class="p-2 px-3 mt-3 border-b-[2px] focus:border-blue-400 w-full outline-none bg-white transition duration-300 <?= (isset($validation) && $validation->hasError('contraseña')) ? 'border-red-400' : '' ?>" />
+          <?php if (isset($validation) && $validation->hasError('contraseña')): ?>
+            <p class="text-red-600 text-sm mt-1"><?= $validation->getError('contraseña') ?></p>
+          <?php endif; ?>
         </div>
 
         <button

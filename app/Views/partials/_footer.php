@@ -43,7 +43,7 @@
         </div>
         <hr class="my-6 border-gray-200 mx-auto" />
         <div class="flex items-center justify-between">
-            <span class="text-sm text-gray-500 text-center">© 2025 <a href="<?= base_url() ?>" class="hover:underline">HolaMundo Viajes™</a>. Todos los derechos reservados.
+            <span class="text-sm text-gray-500 text-center">© 2025 <a href="<?= base_url() ?>" class="hover:underline">HolaMundo Viajes™</a>. Creado por Agustin Nieva y Lucas Murakoshi.
             </span>
             <div class="flex mt-0 justify-center items-center gap-2 text-sm text-gray-500 text-center">
                 <span>Seminario de Lenguajes PHP</span>
